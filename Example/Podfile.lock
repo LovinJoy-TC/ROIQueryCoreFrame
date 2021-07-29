@@ -1,0 +1,16 @@
+PODS:
+  - ROIQueryCoreFrame (0.1.0)
+
+DEPENDENCIES:
+  - ROIQueryCoreFrame (from `../`)
+
+EXTERNAL SOURCES:
+  ROIQueryCoreFrame:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ROIQueryCoreFrame: 5ef0b7855e7311b36000283dd2eec0c304189925
+
+PODFILE CHECKSUM: 9acc3ff810c294357d0c6e1cb5c7b95aa7a369ec
+
+COCOAPODS: 1.10.1
