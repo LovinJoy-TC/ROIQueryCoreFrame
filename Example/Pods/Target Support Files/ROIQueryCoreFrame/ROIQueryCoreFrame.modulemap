@@ -1,6 +1,0 @@
-framework module ROIQueryCoreFrame {
-  umbrella header "ROIQueryCoreFrame-umbrella.h"
-
-  export *
-  module * { export * }
-}
