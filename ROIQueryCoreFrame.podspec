@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'ROIQueryCoreFrame'
+  s.name             = 'ROIQueryCore'
   s.version          = '1.0.1'
   s.summary          = 'This is a ios frameWork for LovinJoy.'
   s.description      = <<-DESC
