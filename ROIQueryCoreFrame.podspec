@@ -8,20 +8,21 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ROIQueryCoreFrame'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'This is a ios frameWork for LovinJoy.'
   s.description      = <<-DESC
-            This is a ios frameWork for LovinJoy
+                    ROIQueryCoreFrame provides a quick way to record your project acttion
                        DESC
 
   s.homepage         = 'https://github.com/YiMuHang/ROIQueryCoreFrame'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'admin' => 'admin@ironmeta.com' }
-  s.source           = { :git => 'https://github.com/YiMuHang/ROIQueryCoreFrame.git', :tag => '1.0.0' }
-  s.vendored_frameworks = 'ROIQueryCoreFrame/Frameworks/1.0.0/ROIQueryCore.framework'
+  s.source           = { :git => 'https://github.com/YiMuHang/ROIQueryCoreFrame.git', :tag => 'v1.0.1' }
+  s.ios.vendored_frameworks = 'ROIQueryCoreFrame/Frameworks/ROIQueryCore.framework'
   s.pod_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
   s.user_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
   s.ios.deployment_target = '9.0'
   s.dependency 'SQLite.swift', '~> 0.12.0'
+  s.swift_version = '5.0'
   
 end
