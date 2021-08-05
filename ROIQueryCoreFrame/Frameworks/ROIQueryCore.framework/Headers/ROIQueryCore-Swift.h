@@ -188,6 +188,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -217,11 +218,34 @@ SWIFT_CLASS("_TtC12ROIQueryCore18AppStateDisposeBag")
 
 
 
+/// log等级
+typedef SWIFT_ENUM(NSInteger, LogDegree, closed) {
+  LogDegreeVerbose = 0,
+  LogDegreeDebug = 1,
+  LogDegreeNet = 2,
+  LogDegreeInfo = 3,
+  LogDegreeWarn = 4,
+  LogDegreeError = 5,
+};
 
 
+
+@class NSString;
+enum ROIQueryChannel : NSInteger;
+@class NSNumber;
 
 SWIFT_CLASS("_TtC12ROIQueryCore8ROIQuery")
 @interface ROIQuery : NSObject
+/// 初始化
+/// \param appid 应用id，后台分配
+///
+/// \param channel 渠道，可用 ROIQueryChannel.APPSTORE 
+///
+/// \param isDebug 是否为调试模式，可以打印日志
+///
+/// \param logLevel 打印日志的级别
+///
++ (void)initSDKWithAppid:(NSString * _Nonnull)appid channel:(enum ROIQueryChannel)channel isDebug:(BOOL)isDebug logLevel:(enum LogDegree)logLevel commonProperties:(NSDictionary<NSString *, id> * _Nullable)commonProperties SWIFT_METHOD_FAMILY(none);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -237,10 +261,60 @@ SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryAnalytics")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// log等级
+typedef SWIFT_ENUM(NSInteger, ROIQueryChannel, closed) {
+  ROIQueryChannelDEFALUT = 0,
+  ROIQueryChannelGP = 1,
+  ROIQueryChannelAPPSTORE = 2,
+};
+
 
 /// Remote Config public API functions
 SWIFT_CLASS("_TtC12ROIQueryCore19ROIQueryCloudConfig")
 @interface ROIQueryCloudConfig : NSObject
+/// Get a string from cached config.
+/// If the key does not exist, fallback will be returned.
+/// \param key String key name
+///
+/// \param fallback String fallback value returned when key does not exist
+///
+///
+/// returns:
+/// String value for the specified key
++ (NSString * _Nonnull)getStringWithKey:(NSString * _Nonnull)key fallback:(NSString * _Nonnull)fallback SWIFT_WARN_UNUSED_RESULT;
+/// Get a boolean from cached config.
+/// If the key does not exist, fallback will be returned.
+/// \param key String key name
+///
+/// \param fallback Boolean fallback value returned when key does not exist
+///
+///
+/// returns:
+/// Boolean value for the specified key
++ (BOOL)getBooleanWithKey:(NSString * _Nonnull)key fallback:(BOOL)fallback SWIFT_WARN_UNUSED_RESULT;
+/// Get a number from cached config.
+/// If the key does not exist, or cached value cannot be converted to
+/// number, fallback will be returned.
+/// \param key String key name
+///
+/// \param fallback Number fallback value returned when key does not exist or
+/// cached value cannot be converted to number
+///
+///
+/// returns:
+/// Number value for specified key
++ (NSNumber * _Nonnull)getNumberWithKey:(NSString * _Nonnull)key fallback:(NSNumber * _Nonnull)fallback SWIFT_WARN_UNUSED_RESULT;
+/// Get cached config.
+///
+/// returns:
+/// String dictionary of config contents
++ (NSDictionary<NSString *, id> * _Nonnull)getConfig SWIFT_WARN_UNUSED_RESULT;
+/// Get cached config.
+///
+/// returns:
+/// String dictionary of config contents
++ (void)fetch;
++ (void)fetchWithConfigFetchSuccess:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))configFetchSuccess configFetchError:(void (^ _Nonnull)(NSString * _Nonnull))configFetchError;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
