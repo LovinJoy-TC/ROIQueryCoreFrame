@@ -207,6 +207,32 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+typedef SWIFT_ENUM(NSInteger, AD_PLATFORM, closed) {
+  AD_PLATFORMIDLE = -1,
+  AD_PLATFORMADMOB = 0,
+  AD_PLATFORMMOPUB = 1,
+  AD_PLATFORMADCOLONY = 2,
+  AD_PLATFORMAPPLOVIN = 3,
+  AD_PLATFORMCHARTBOOST = 4,
+  AD_PLATFORMFACEBOOK = 5,
+  AD_PLATFORMINMOBI = 6,
+  AD_PLATFORMIRONSOURCE = 7,
+  AD_PLATFORMPANGLE = 8,
+  AD_PLATFORMSNAP_AUDIENCE_NETWORK = 9,
+  AD_PLATFORMTAPJOY = 10,
+  AD_PLATFORMUNITY_ADS = 11,
+  AD_PLATFORMVERIZON_MEDIA = 12,
+  AD_PLATFORMVUNGLE = 13,
+};
+
+typedef SWIFT_ENUM(NSInteger, AD_TYPE, closed) {
+  AD_TYPEIDLE = -1,
+  AD_TYPEBANNER = 0,
+  AD_TYPEINTERSTITIAL = 1,
+  AD_TYPENATIVE = 2,
+  AD_TYPEREWARDED = 3,
+};
+
 
 SWIFT_CLASS("_TtC12ROIQueryCore18AppStateDisposeBag")
 @interface AppStateDisposeBag : NSObject
@@ -252,12 +278,165 @@ SWIFT_CLASS("_TtC12ROIQueryCore8ROIQuery")
 
 SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 @interface ROIQueryAdReport : NSObject
+/// 上报 广告入口
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportEntranceWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 广告展示请求
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportToShowWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 广告曝光
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportImpressionWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 广告点击
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportClickWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 激励广告已获得奖励
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportRewardedWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 自定义转化，通过点击
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportConversionByClickWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 自定义转化，通过跳出app
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportConversionByLeftAppWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 自定义转化，通过曝光
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportConversionByImpressionWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 自定义转化事件，通过获得激励
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportConversionByRewardedWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 广告关闭
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportCloseWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 广告展示价值 (单独广告平台)
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param value 价值
+/// @param currency 货币
+/// @param precision 精确度
+/// @param entrance 广告入口
++ (void)reportPaidWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision entrance:(NSString * _Nullable)entrance;
+/// 上报 广告展示价值（聚合广告平台）
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param mediation 聚合平台
+/// @param mediationId 聚合平台广告id
+/// @param value 价值
+/// @param currency 货币
+/// @param precision 精确度
+/// @param country 国家
+/// @param entrance 广告入口
++ (void)reportPaidWithId:(NSString * _Nonnull)id type:(NSString * _Nonnull)type platform:(NSString * _Nonnull)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(NSInteger)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country entrance:(NSString * _Nullable)entrance;
+/// 上报 访问广告链接，离开当前app(页面)
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportLeftAppWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
 SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryAnalytics")
 @interface ROIQueryAnalytics : NSObject
+/// 调用 track 接口，记录一个带有属性的事件
+/// \param eventName 事件的名称
+///
+/// \param properties 事件属性，可为空
+///
++ (void)trackWithEventName:(NSString * _Nonnull)eventName properties:(NSDictionary<NSString *, id> * _Nullable)properties;
+/// 设置自有用户系统的id
+/// \param accountId 用户系统id
+///
++ (void)setAccountIdWithAccountId:(NSString * _Nonnull)accountId;
+/// 设置Firebase的app_instance_id
+/// \param fiid Firebase 的 app_instance_id
+///
++ (void)setFirebaseAppInstanceIDWithFiid:(NSString * _Nonnull)fiid;
+/// 设置AppsFlyer的appsflyer_id
+/// \param afuid AppsFlyer的appsflyer_id
+///
++ (void)setAppsFlyerIDWithAfuid:(NSString * _Nonnull)afuid;
+/// 采集 app 退出
+/// \param properties 事件属性，可为空
+///
++ (void)trackAppCloseWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 采集 页面打开
+/// \param properties 事件属性，可为空
+///
++ (void)trackPageOpenWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 采集 页面关闭
+/// \param properties 事件属性，可为空
+///
++ (void)trackPageCloseWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 设置用户属性
+/// \param properties 事件属性，可为空
+///
++ (void)setUserPropertiesWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 主动上报本地数据事件
++ (void)flush;
+/// app 进入前台
++ (void)onAppForeground;
+/// app 进入后台
++ (void)onAppBackground;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -315,6 +494,50 @@ SWIFT_CLASS("_TtC12ROIQueryCore19ROIQueryCloudConfig")
 /// String dictionary of config contents
 + (void)fetch;
 + (void)fetchWithConfigFetchSuccess:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))configFetchSuccess configFetchError:(void (^ _Nonnull)(NSString * _Nonnull))configFetchError;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryIAPReport")
+@interface ROIQueryIAPReport : NSObject
+/// 展示购买入口的时候上报
+/// @param order 订单
+/// @param sku 商品ID
+/// @param price 价格， 如 9.99
+/// @param usdPrice 美元价格
+/// @param currency 货币，如usd
+/// @param seq 系列行为标识
+/// @param entrance 入口，可为空
++ (void)reportEntranceWithOrder:(NSString * _Nonnull)order sku:(NSString * _Nonnull)sku price:(double)price currency:(NSString * _Nonnull)currency seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 点击购买的时候上报
+/// @param order 订单
+/// @param sku 商品ID
+/// @param price 价格， 如 9.99
+/// @param usdPrice 美元价格
+/// @param currency 货币，如usd
+/// @param seq 系列行为标识
+/// @param entrance 入口，可为空
++ (void)reportToPurchaseWithOrder:(NSString * _Nonnull)order sku:(NSString * _Nonnull)sku price:(double)price currency:(NSString * _Nonnull)currency seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 购买成功的时候上报，无论是否消耗
+/// @param order 订单
+/// @param sku 商品ID
+/// @param price 价格， 如 9.99
+/// @param usdPrice 美元价格
+/// @param currency 货币，如usd
+/// @param seq 系列行为标识
+/// @param entrance 入口，可为空
++ (void)reportPurchasedWithOrder:(NSString * _Nonnull)order sku:(NSString * _Nonnull)sku price:(double)price currency:(NSString * _Nonnull)currency seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 购买失败的时候上报
+/// @param order 订单
+/// @param sku 商品ID
+/// @param price 价格， 如 9.99
+/// @param usdPrice 美元价格
+/// @param currency 货币，如usd
+/// @param seq 系列行为标识
+/// @param code 错误码
+/// @param entrance 入口，可为空
+/// @param msg 额外信息，可为空
++ (void)reportNotToPurchasedWithOrder:(NSString * _Nonnull)order sku:(NSString * _Nonnull)sku price:(double)price currency:(NSString * _Nonnull)currency seq:(NSString * _Nonnull)seq code:(NSString * _Nonnull)code msg:(NSString * _Nullable)msg entrance:(NSString * _Nullable)entrance;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
