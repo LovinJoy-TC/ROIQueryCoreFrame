@@ -207,6 +207,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+typedef SWIFT_ENUM(NSInteger, AD_MEDIATION, closed) {
+  AD_MEDIATIONIDLE = -1,
+  AD_MEDIATIONMOPUB = 0,
+  AD_MEDIATIONIRONSOURCE = 1,
+};
+
 typedef SWIFT_ENUM(NSInteger, AD_PLATFORM, closed) {
   AD_PLATFORMIDLE = -1,
   AD_PLATFORMADMOB = 0,
@@ -223,6 +229,7 @@ typedef SWIFT_ENUM(NSInteger, AD_PLATFORM, closed) {
   AD_PLATFORMUNITY_ADS = 11,
   AD_PLATFORMVERIZON_MEDIA = 12,
   AD_PLATFORMVUNGLE = 13,
+  AD_PLATFORMADX = 14,
 };
 
 typedef SWIFT_ENUM(NSInteger, AD_TYPE, closed) {
@@ -231,6 +238,8 @@ typedef SWIFT_ENUM(NSInteger, AD_TYPE, closed) {
   AD_TYPEINTERSTITIAL = 1,
   AD_TYPENATIVE = 2,
   AD_TYPEREWARDED = 3,
+  AD_TYPEREWARDED_INTERSTITIAL = 4,
+  AD_TYPEAPP_OPEN = 5,
 };
 
 
@@ -294,6 +303,14 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
 + (void)reportToShowWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
+/// 上报 广告展示
+/// @param id 广告最小单元id
+/// @param type 广告类型
+/// @param platform 广告平台
+/// @param location 广告位
+/// @param seq 系列行为标识
+/// @param entrance 广告入口
++ (void)reportShowWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 广告曝光
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -382,7 +399,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param precision 精确度
 /// @param country 国家
 /// @param entrance 广告入口
-+ (void)reportPaidWithId:(NSString * _Nonnull)id type:(NSString * _Nonnull)type platform:(NSString * _Nonnull)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(NSInteger)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country entrance:(NSString * _Nullable)entrance;
++ (void)reportPaidWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSString * _Nonnull)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(NSInteger)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country entrance:(NSString * _Nullable)entrance;
 /// 上报 访问广告链接，离开当前app(页面)
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -415,6 +432,10 @@ SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryAnalytics")
 /// \param afuid AppsFlyer的appsflyer_id
 ///
 + (void)setAppsFlyerIDWithAfuid:(NSString * _Nonnull)afuid;
+/// 设置kochava iid
+/// \param afuid AppsFlyer的appsflyer_id
+///
++ (void)setKochavaIDWithKoid:(NSString * _Nonnull)koid;
 /// 采集 app 退出
 /// \param properties 事件属性，可为空
 ///
@@ -538,6 +559,92 @@ SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryIAPReport")
 /// @param entrance 入口，可为空
 /// @param msg 额外信息，可为空
 + (void)reportNotToPurchasedWithOrder:(NSString * _Nonnull)order sku:(NSString * _Nonnull)sku price:(double)price currency:(NSString * _Nonnull)currency seq:(NSString * _Nonnull)seq code:(NSString * _Nonnull)code msg:(NSString * _Nullable)msg entrance:(NSString * _Nullable)entrance;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryIasReport")
+@interface ROIQueryIasReport : NSObject
+/// 展示订阅上报事件
+/// \param iasSeq 系列行为唯一标识
+///
+/// \param iasEntrance 入口，可为空
+///
+/// \param iasPlacement 页面区分 ，不可为空
+///
++ (void)reportToShowWithIasSeq:(NSString * _Nonnull)iasSeq iasEntrance:(NSString * _Nullable)iasEntrance iasPlacement:(NSString * _Nonnull)iasPlacement;
+/// 展示订阅内容成功事件
+/// \param iasSeq 系列行为唯一标识
+///
+/// \param iasEntrance 入口，可为空
+///
+/// \param iasPlacement 页面区分 ，不可为空
+///
++ (void)reportShowSuccessWithIasSeq:(NSString * _Nonnull)iasSeq iasEntrance:(NSString * _Nullable)iasEntrance iasPlacement:(NSString * _Nonnull)iasPlacement;
+/// 展示订阅内容失败
+/// \param iasSeq 系列行为唯一标识
+///
+/// \param iasEntrance 入口，可为空
+///
+/// \param iasPlacement 页面区分 ，不可为空
+///
+/// \param iasCode 错误码
+///
+/// \param iasMsg 额外信息，可为空
+///
++ (void)reportShowFailWithIasSeq:(NSString * _Nonnull)iasSeq iasEntrance:(NSString * _Nullable)iasEntrance iasPlacement:(NSString * _Nonnull)iasPlacement iasCode:(NSString * _Nonnull)iasCode iasMsg:(NSString * _Nullable)iasMsg;
+/// 点击内购事件上报
+/// \param iasSeq 系列行为唯一标识
+///
+/// \param iasEntrance 入口，可为空
+///
+/// \param iasPlacement 页面区分，不可为空
+///
+/// \param iasSku 订阅的产品ID
+///
+/// \param iasOrderId 订单ID
+///
+/// \param iasPrice 价格
+///
+/// \param iasCurrency 货币
+///
++ (void)reportSubscribeWithIasSeq:(NSString * _Nonnull)iasSeq iasEntrance:(NSString * _Nullable)iasEntrance iasPlacement:(NSString * _Nonnull)iasPlacement iasSku:(NSString * _Nonnull)iasSku iasOrderId:(NSString * _Nonnull)iasOrderId iasPrice:(NSString * _Nonnull)iasPrice iasCurrency:(NSString * _Nonnull)iasCurrency;
+/// 点击订阅成功事件上报
+/// \param iasSeq 系列行为唯一标识
+///
+/// \param iasEntrance 入口，可为空
+///
+/// \param iasPlacement 页面区分，不可为空
+///
+/// \param iasSku 订阅的产品ID
+///
+/// \param iasOrderId 订单ID
+///
+/// \param iasPrice 价格
+///
+/// \param iasCurrency 货币
+///
++ (void)reportSubscribeSuccessWithIasSeq:(NSString * _Nonnull)iasSeq iasEntrance:(NSString * _Nullable)iasEntrance iasPlacement:(NSString * _Nonnull)iasPlacement iasSku:(NSString * _Nonnull)iasSku iasOrderId:(NSString * _Nonnull)iasOrderId iasOriginalOrderId:(NSString * _Nonnull)iasOriginalOrderId iasPrice:(NSString * _Nonnull)iasPrice iasCurrency:(NSString * _Nonnull)iasCurrency;
+/// 点击订阅失败事件上报
+/// \param iasSeq 系列行为唯一标识
+///
+/// \param iasEntrance 入口，可为空
+///
+/// \param iasPlacement 页面区分，不可为空
+///
+/// \param iasSku 订阅的产品ID
+///
+/// \param iasOrderId 订单ID
+///
+/// \param iasPrice 价格
+///
+/// \param iasCurrency 货币
+///
+/// \param iasCode 错误码
+///
+/// \param iasMsg 额外信息，可为空
+///
++ (void)reportSubscribeFailWithIasSeq:(NSString * _Nonnull)iasSeq iasEntrance:(NSString * _Nullable)iasEntrance iasPlacement:(NSString * _Nonnull)iasPlacement iasSku:(NSString * _Nonnull)iasSku iasOrderId:(NSString * _Nonnull)iasOrderId iasOriginalOrderId:(NSString * _Nonnull)iasOriginalOrderId iasPrice:(NSString * _Nonnull)iasPrice iasCurrency:(NSString * _Nonnull)iasCurrency iasCode:(NSString * _Nonnull)iasCode iasMsg:(NSString * _Nullable)iasMsg;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
