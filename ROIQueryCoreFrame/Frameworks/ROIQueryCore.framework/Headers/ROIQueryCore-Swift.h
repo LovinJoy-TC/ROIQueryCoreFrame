@@ -207,39 +207,39 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-typedef SWIFT_ENUM(NSInteger, AD_MEDIATION, closed) {
-  AD_MEDIATIONIDLE = -1,
-  AD_MEDIATIONMOPUB = 0,
-  AD_MEDIATIONIRONSOURCE = 1,
+typedef SWIFT_ENUM(NSInteger, AdMediation, closed) {
+  AdMediationIDLE = -1,
+  AdMediationMOPUB = 0,
+  AdMediationIRONSOURCE = 1,
 };
 
-typedef SWIFT_ENUM(NSInteger, AD_PLATFORM, closed) {
-  AD_PLATFORMIDLE = -1,
-  AD_PLATFORMADMOB = 0,
-  AD_PLATFORMMOPUB = 1,
-  AD_PLATFORMADCOLONY = 2,
-  AD_PLATFORMAPPLOVIN = 3,
-  AD_PLATFORMCHARTBOOST = 4,
-  AD_PLATFORMFACEBOOK = 5,
-  AD_PLATFORMINMOBI = 6,
-  AD_PLATFORMIRONSOURCE = 7,
-  AD_PLATFORMPANGLE = 8,
-  AD_PLATFORMSNAP_AUDIENCE_NETWORK = 9,
-  AD_PLATFORMTAPJOY = 10,
-  AD_PLATFORMUNITY_ADS = 11,
-  AD_PLATFORMVERIZON_MEDIA = 12,
-  AD_PLATFORMVUNGLE = 13,
-  AD_PLATFORMADX = 14,
+typedef SWIFT_ENUM(NSInteger, AdPlatform, closed) {
+  AdPlatformIDLE = -1,
+  AdPlatformADMOB = 0,
+  AdPlatformMOPUB = 1,
+  AdPlatformADCOLONY = 2,
+  AdPlatformAPPLOVIN = 3,
+  AdPlatformCHARTBOOST = 4,
+  AdPlatformFACEBOOK = 5,
+  AdPlatformINMOBI = 6,
+  AdPlatformIRONSOURCE = 7,
+  AdPlatformPANGLE = 8,
+  AdPlatformSNAP_AUDIENCE_NETWORK = 9,
+  AdPlatformTAPJOY = 10,
+  AdPlatformUNITY_ADS = 11,
+  AdPlatformVERIZON_MEDIA = 12,
+  AdPlatformVUNGLE = 13,
+  AdPlatformADX = 14,
 };
 
-typedef SWIFT_ENUM(NSInteger, AD_TYPE, closed) {
-  AD_TYPEIDLE = -1,
-  AD_TYPEBANNER = 0,
-  AD_TYPEINTERSTITIAL = 1,
-  AD_TYPENATIVE = 2,
-  AD_TYPEREWARDED = 3,
-  AD_TYPEREWARDED_INTERSTITIAL = 4,
-  AD_TYPEAPP_OPEN = 5,
+typedef SWIFT_ENUM(NSInteger, AdType, closed) {
+  AdTypeIDLE = -1,
+  AdTypeBANNER = 0,
+  AdTypeINTERSTITIAL = 1,
+  AdTypeNATIVE = 2,
+  AdTypeREWARDED = 3,
+  AdTypeREWARDED_INTERSTITIAL = 4,
+  AdTypeAPP_OPEN = 5,
 };
 
 
@@ -251,7 +251,42 @@ SWIFT_CLASS("_TtC12ROIQueryCore18AppStateDisposeBag")
 
 
 
+SWIFT_CLASS("_TtC12ROIQueryCore4HTTP")
+@interface HTTP : NSObject <NSURLSessionDelegate>
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
+@class NSURLSession;
+@class NSURLSessionTask;
+@class NSURLAuthenticationChallenge;
+@class NSURLCredential;
+@class NSHTTPURLResponse;
+@class NSURLRequest;
+@class NSNumber;
+@class NSURLSessionDataTask;
+@class NSData;
+
+@interface HTTP (SWIFT_EXTENSION(ROIQueryCore)) <NSURLSessionDataDelegate>
+- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
+- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task willPerformHTTPRedirection:(NSHTTPURLResponse * _Nonnull)response newRequest:(NSURLRequest * _Nonnull)request completionHandler:(void (^ _Nonnull)(NSURLRequest * _Nullable))completionHandler;
+- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
+- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
+- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
+@end
+
+@class NSString;
+
+/// The only reason this is not a struct is the requirements for
+/// lazy evaluation of <code>headers</code> and <code>cookies</code>, which is mutating the
+/// struct. This would make those properties unusable with <code>HTTPResult</code>s
+/// declared with <code>let</code>
+SWIFT_CLASS("_TtC12ROIQueryCore10HTTPResult")
+@interface HTTPResult : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 /// log等级
 typedef SWIFT_ENUM(NSInteger, LogDegree, closed) {
@@ -264,10 +299,7 @@ typedef SWIFT_ENUM(NSInteger, LogDegree, closed) {
 };
 
 
-
-@class NSString;
 enum ROIQueryChannel : NSInteger;
-@class NSNumber;
 
 SWIFT_CLASS("_TtC12ROIQueryCore8ROIQuery")
 @interface ROIQuery : NSObject
@@ -294,7 +326,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportEntranceWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportEntranceWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 广告展示请求
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -302,7 +334,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportToShowWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportToShowWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 广告展示
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -310,7 +342,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportShowWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportShowWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 广告曝光
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -318,7 +350,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportImpressionWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportImpressionWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 广告点击
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -326,7 +358,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportClickWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportClickWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 激励广告已获得奖励
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -334,7 +366,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportRewardedWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportRewardedWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 自定义转化，通过点击
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -342,7 +374,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportConversionByClickWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportConversionByClickWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 自定义转化，通过跳出app
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -350,7 +382,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportConversionByLeftAppWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportConversionByLeftAppWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 自定义转化，通过曝光
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -358,7 +390,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportConversionByImpressionWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportConversionByImpressionWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 自定义转化事件，通过获得激励
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -366,7 +398,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportConversionByRewardedWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportConversionByRewardedWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 广告关闭
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -374,7 +406,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportCloseWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportCloseWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 /// 上报 广告展示价值 (单独广告平台)
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -385,7 +417,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param currency 货币
 /// @param precision 精确度
 /// @param entrance 广告入口
-+ (void)reportPaidWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision entrance:(NSString * _Nullable)entrance;
++ (void)reportPaidWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision entrance:(NSString * _Nullable)entrance;
 /// 上报 广告展示价值（聚合广告平台）
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -399,7 +431,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param precision 精确度
 /// @param country 国家
 /// @param entrance 广告入口
-+ (void)reportPaidWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSString * _Nonnull)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(NSInteger)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country entrance:(NSString * _Nullable)entrance;
++ (void)reportPaidWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(NSString * _Nonnull)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(enum AdMediation)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country entrance:(NSString * _Nullable)entrance;
 /// 上报 访问广告链接，离开当前app(页面)
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -407,7 +439,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportLeftAppWithId:(NSString * _Nonnull)id type:(NSInteger)type platform:(NSInteger)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportLeftAppWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -514,7 +546,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore19ROIQueryCloudConfig")
 /// returns:
 /// String dictionary of config contents
 + (void)fetch;
-+ (void)fetchWithConfigFetchSuccess:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))configFetchSuccess configFetchError:(void (^ _Nonnull)(NSString * _Nonnull))configFetchError;
++ (void)fetchWithSuccess:(void (^ _Nonnull)(void))success error:(void (^ _Nonnull)(NSString * _Nonnull))error;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
