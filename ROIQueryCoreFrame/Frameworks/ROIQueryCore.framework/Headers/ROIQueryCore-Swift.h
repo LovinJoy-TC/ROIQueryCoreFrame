@@ -313,6 +313,16 @@ SWIFT_CLASS("_TtC12ROIQueryCore8ROIQuery")
 /// \param logLevel 打印日志的级别
 ///
 + (void)initSDKWithAppid:(NSString * _Nonnull)appid channel:(enum ROIQueryChannel)channel isDebug:(BOOL)isDebug logLevel:(enum LogDegree)logLevel commonProperties:(NSDictionary<NSString *, id> * _Nullable)commonProperties SWIFT_METHOD_FAMILY(none);
+/// 初始化
+/// \param appid 应用id，后台分配
+///
+/// \param channel 渠道，可用 ROIQueryChannel.APPSTORE 
+///
+/// \param isDebug 是否为调试模式，可以打印日志
+///
+/// \param logLevel 打印日志的级别
+///
++ (void)initSDKWithAppid:(NSString * _Nonnull)appid channel:(enum ROIQueryChannel)channel isDebug:(BOOL)isDebug logLevel:(enum LogDegree)logLevel SWIFT_METHOD_FAMILY(none);
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
