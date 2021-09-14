@@ -336,7 +336,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportEntranceWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportEntranceWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 广告展示请求
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -344,7 +344,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportToShowWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportToShowWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 广告展示
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -352,7 +352,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportShowWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportShowWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 广告曝光
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -360,7 +360,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportImpressionWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportImpressionWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 广告点击
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -368,7 +368,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportClickWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportClickWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 激励广告已获得奖励
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -376,7 +376,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportRewardedWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportRewardedWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 自定义转化，通过点击
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -384,7 +384,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportConversionByClickWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportConversionByClickWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 自定义转化，通过跳出app
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -392,7 +392,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportConversionByLeftAppWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportConversionByLeftAppWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 自定义转化，通过曝光
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -400,7 +400,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportConversionByImpressionWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportConversionByImpressionWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 自定义转化事件，通过获得激励
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -408,7 +408,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportConversionByRewardedWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportConversionByRewardedWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 广告关闭
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -416,7 +416,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportCloseWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportCloseWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 广告展示价值 (单独广告平台)
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -427,7 +427,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param currency 货币
 /// @param precision 精确度
 /// @param entrance 广告入口
-+ (void)reportPaidWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision entrance:(NSString * _Nullable)entrance;
++ (void)reportPaidWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 广告展示价值（聚合广告平台）
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -441,7 +441,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param precision 精确度
 /// @param country 国家
 /// @param entrance 广告入口
-+ (void)reportPaidWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(NSString * _Nonnull)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(enum AdMediation)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country entrance:(NSString * _Nullable)entrance;
++ (void)reportPaidWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(NSString * _Nonnull)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(enum AdMediation)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 访问广告链接，离开当前app(页面)
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -449,7 +449,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
-+ (void)reportLeftAppWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq entrance:(NSString * _Nullable)entrance;
++ (void)reportLeftAppWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
