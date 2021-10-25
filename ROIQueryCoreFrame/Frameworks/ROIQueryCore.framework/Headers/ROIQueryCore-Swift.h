@@ -549,6 +549,16 @@ SWIFT_CLASS("_TtC12ROIQueryCore19ROIQueryCloudConfig")
 /// Get cached config.
 ///
 /// returns:
+/// json dictionary
++ (NSDictionary<NSString *, id> * _Nonnull)getJsonDicWithKey:(NSString * _Nonnull)key fallback:(NSDictionary<NSString *, id> * _Nonnull)fallback SWIFT_WARN_UNUSED_RESULT;
+/// Get cached config.
+///
+/// returns:
+/// json dictionary
++ (NSString * _Nonnull)getJsonStringWithKey:(NSString * _Nonnull)key fallback:(NSString * _Nonnull)fallback SWIFT_WARN_UNUSED_RESULT;
+/// Get cached config.
+///
+/// returns:
 /// String dictionary of config contents
 + (NSDictionary<NSString *, id> * _Nonnull)getConfig SWIFT_WARN_UNUSED_RESULT;
 /// Get cached config.
