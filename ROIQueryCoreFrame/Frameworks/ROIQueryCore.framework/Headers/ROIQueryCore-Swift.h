@@ -214,6 +214,7 @@ typedef SWIFT_ENUM(NSInteger, AdMediation, closed) {
 };
 
 typedef SWIFT_ENUM(NSInteger, AdPlatform, closed) {
+  AdPlatformUNDISCLOSED = -2,
   AdPlatformIDLE = -1,
   AdPlatformADMOB = 0,
   AdPlatformMOPUB = 1,
@@ -432,6 +433,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param id 广告最小单元id
 /// @param type 广告类型
 /// @param platform 广告平台
+/// @param adgroupType 广告组类别
 /// @param location 广告位
 /// @param seq 系列行为标识
 /// @param mediation 聚合平台
@@ -441,7 +443,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param precision 精确度
 /// @param country 国家
 /// @param entrance 广告入口
-+ (void)reportPaidWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(NSString * _Nonnull)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(enum AdMediation)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
++ (void)reportPaidWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(NSString * _Nonnull)platform adgroupType:(NSString * _Nonnull)adgroupType location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq mediation:(enum AdMediation)mediation mediationId:(NSString * _Nonnull)mediationId value:(NSString * _Nonnull)value currency:(NSString * _Nonnull)currency precision:(NSString * _Nonnull)precision country:(NSString * _Nonnull)country properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
 /// 上报 访问广告链接，离开当前app(页面)
 /// @param id 广告最小单元id
 /// @param type 广告类型
@@ -450,12 +452,22 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
 + (void)reportLeftAppWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
+/// 获取聚合平台具体广告网络的广告平台
+///
+/// returns:
+/// 广告平台
++ (enum AdPlatform)getPlatformWithMediation:(NSInteger)mediation networkName:(NSString * _Nonnull)networkName networkPlacementId:(NSString * _Nonnull)networkPlacementId adgroupType:(NSString * _Nonnull)adgroupType SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
 SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryAnalytics")
 @interface ROIQueryAnalytics : NSObject
+/// 获取ROIQuery ID
+///
+/// returns:
+/// String value for ROIQuery ID
++ (NSString * _Nonnull)getROIQueryId SWIFT_WARN_UNUSED_RESULT;
 /// 调用 track 接口，记录一个带有属性的事件
 /// \param eventName 事件的名称
 ///
