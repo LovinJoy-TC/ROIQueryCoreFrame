@@ -452,6 +452,8 @@ SWIFT_CLASS("_TtC12ROIQueryCore16ROIQueryAdReport")
 /// @param seq 系列行为标识
 /// @param entrance 广告入口
 + (void)reportLeftAppWithId:(NSString * _Nonnull)id type:(enum AdType)type platform:(enum AdPlatform)platform location:(NSString * _Nonnull)location seq:(NSString * _Nonnull)seq properties:(NSDictionary<NSString *, id> * _Nullable)properties entrance:(NSString * _Nullable)entrance;
+/// 生成UUID
++ (NSString * _Nonnull)generateUUID SWIFT_WARN_UNUSED_RESULT;
 /// 获取聚合平台具体广告网络的广告平台
 ///
 /// returns:
