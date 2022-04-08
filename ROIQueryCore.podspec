@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/YiMuHang/ROIQueryCoreFrame'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'admin' => 'admin@ironmeta.com' }
-  s.source           = { :git => 'https://github.com/YiMuHang/ROIQueryCoreFrame.git', :tag => '1.0.13' }
+  s.source           = { :git => 'https://github.com/YiMuHang/ROIQueryCoreFrame.git', :tag => 'v1.0.13' }
   s.ios.vendored_frameworks = 'ROIQueryCoreFrame/Frameworks/ROIQueryCore.framework'
   s.pod_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
   s.user_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
