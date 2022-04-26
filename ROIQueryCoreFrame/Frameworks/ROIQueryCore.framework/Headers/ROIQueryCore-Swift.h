@@ -207,20 +207,13 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-typedef SWIFT_ENUM(NSInteger, AD_CONVERSION_SOURCE, closed) {
-  AD_CONVERSION_SOURCECLICK = 0,
-  AD_CONVERSION_SOURCELEFT_APP = 1,
-  AD_CONVERSION_SOURCEIMPRESSION = 2,
-  AD_CONVERSION_SOURCEREWARDED = 3,
-};
-
-typedef SWIFT_ENUM(NSInteger, AdMediation, open) {
+typedef SWIFT_ENUM(NSInteger, AdMediation, closed) {
   AdMediationIDLE = -1,
   AdMediationMOPUB = 0,
   AdMediationIRONSOURCE = 1,
 };
 
-typedef SWIFT_ENUM(NSInteger, AdPlatform, open) {
+typedef SWIFT_ENUM(NSInteger, AdPlatform, closed) {
   AdPlatformUNDISCLOSED = -2,
   AdPlatformIDLE = -1,
   AdPlatformADMOB = 0,
@@ -240,7 +233,7 @@ typedef SWIFT_ENUM(NSInteger, AdPlatform, open) {
   AdPlatformADX = 14,
 };
 
-typedef SWIFT_ENUM(NSInteger, AdType, open) {
+typedef SWIFT_ENUM(NSInteger, AdType, closed) {
   AdTypeIDLE = -1,
   AdTypeBANNER = 0,
   AdTypeINTERSTITIAL = 1,
@@ -255,20 +248,6 @@ SWIFT_CLASS("_TtC12ROIQueryCore18AppStateDisposeBag")
 @interface AppStateDisposeBag : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-/// Simple closure implementation on NSTimer scheduling.
-/// Example:
-/// \code
-/// BlockTimer.scheduledTimer(withTimeInterval: 1.0) { timer in
-///     print("Did something after 1s!")
-/// }
-///
-/// \endcode
-SWIFT_CLASS("_TtC12ROIQueryCore10BlockTimer")
-@interface BlockTimer : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -311,7 +290,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore10HTTPResult")
 @end
 
 /// log等级
-typedef SWIFT_ENUM(NSInteger, LogDegree, open) {
+typedef SWIFT_ENUM(NSInteger, LogDegree, closed) {
   LogDegreeVerbose = 0,
   LogDegreeDebug = 1,
   LogDegreeNet = 2,
@@ -539,7 +518,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryAnalytics")
 @end
 
 /// log等级
-typedef SWIFT_ENUM(NSInteger, ROIQueryChannel, open) {
+typedef SWIFT_ENUM(NSInteger, ROIQueryChannel, closed) {
   ROIQueryChannelDEFALUT = 0,
   ROIQueryChannelGP = 1,
   ROIQueryChannelAPPSTORE = 2,
@@ -549,7 +528,6 @@ typedef SWIFT_ENUM(NSInteger, ROIQueryChannel, open) {
 /// Remote Config public API functions
 SWIFT_CLASS("_TtC12ROIQueryCore19ROIQueryCloudConfig")
 @interface ROIQueryCloudConfig : NSObject
-+ (void)initConfigWithUrl:(NSString * _Nonnull)url params:(NSDictionary<NSString *, NSString *> * _Nonnull)params aseKey:(NSString * _Nonnull (^ _Nonnull)(NSString * _Nonnull))aseKey SWIFT_METHOD_FAMILY(none);
 /// Get a string from cached config.
 /// If the key does not exist, fallback will be returned.
 /// \param key String key name
