@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ciYZe58C8taAZKXi997eldMbb54=
+		+jiqv0nmYswxMBm2je3GLRNscl4=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		AVMvbAHbUJGodmp8IDGnIEgYtrw=
+		VNrsJnbN/laFlmjtWMBRLghQkOA=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		AVMvbAHbUJGodmp8IDGnIEgYtrw=
+		VNrsJnbN/laFlmjtWMBRLghQkOA=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		MQ9rDsw4kWyFaTR5KJXIk56jQak=
+		pszD6aPNShQ5nzgEdoloJoGgYT4=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		MQ9rDsw4kWyFaTR5KJXIk56jQak=
+		pszD6aPNShQ5nzgEdoloJoGgYT4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -73,22 +73,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AVMvbAHbUJGodmp8IDGnIEgYtrw=
+			VNrsJnbN/laFlmjtWMBRLghQkOA=
 			</data>
 			<key>hash2</key>
 			<data>
-			gsGNQGk+qDcKNW8GOh1V6WCqukJWcjh2JTgjQ20cMcc=
+			fMZ0CaRr2VPxz1iRIMYFHOICATZFfQKg36kT2sGVwjU=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AVMvbAHbUJGodmp8IDGnIEgYtrw=
+			VNrsJnbN/laFlmjtWMBRLghQkOA=
 			</data>
 			<key>hash2</key>
 			<data>
-			gsGNQGk+qDcKNW8GOh1V6WCqukJWcjh2JTgjQ20cMcc=
+			fMZ0CaRr2VPxz1iRIMYFHOICATZFfQKg36kT2sGVwjU=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -106,11 +106,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MQ9rDsw4kWyFaTR5KJXIk56jQak=
+			pszD6aPNShQ5nzgEdoloJoGgYT4=
 			</data>
 			<key>hash2</key>
 			<data>
-			S1YPzfowLL07gJwnovFKxBLlAcVZdl8znWxbgTvTBp4=
+			XDEo46SSH1XQO++eWDe5/lUGwZZawXjjVmszenCDIrA=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftdoc</key>
@@ -128,11 +128,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MQ9rDsw4kWyFaTR5KJXIk56jQak=
+			pszD6aPNShQ5nzgEdoloJoGgYT4=
 			</data>
 			<key>hash2</key>
 			<data>
-			S1YPzfowLL07gJwnovFKxBLlAcVZdl8znWxbgTvTBp4=
+			XDEo46SSH1XQO++eWDe5/lUGwZZawXjjVmszenCDIrA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
