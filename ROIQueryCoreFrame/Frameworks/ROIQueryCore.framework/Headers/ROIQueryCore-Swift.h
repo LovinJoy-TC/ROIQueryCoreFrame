@@ -492,6 +492,10 @@ SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryAnalytics")
 /// \param afuid AppsFlyer的appsflyer_id
 ///
 + (void)setKochavaIDWithKoid:(NSString * _Nonnull)koid;
+/// 设置订阅原始订单id
+/// \param orderId 订阅原始订单id
+///
++ (void)setIasOriginalOrderIDWithOrderId:(NSString * _Nonnull)orderId;
 /// 采集 app 退出
 /// \param properties 事件属性，可为空
 ///
