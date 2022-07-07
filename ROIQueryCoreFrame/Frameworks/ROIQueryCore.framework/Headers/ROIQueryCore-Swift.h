@@ -488,6 +488,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryAnalytics")
 /// \param afuid AppsFlyer的appsflyer_id
 ///
 + (void)setAppsFlyerIDWithAfuid:(NSString * _Nonnull)afuid;
++ (void)setFCMTokenWithToken:(NSString * _Nonnull)token;
 /// 设置kochava iid
 /// \param afuid AppsFlyer的appsflyer_id
 ///
@@ -512,12 +513,31 @@ SWIFT_CLASS("_TtC12ROIQueryCore17ROIQueryAnalytics")
 /// \param properties 事件属性，可为空
 ///
 + (void)setUserPropertiesWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 设置一般的用户属性
+/// \param properties 属性
+///
++ (void)userSetWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 设置只要设置一次的用户属性
+/// \param properties 属性
+///
++ (void)userSetOnceWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 对 JSONArray 类型的用户属性进行属性累加
+/// \param properties 属性
+///
++ (void)userAppendWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 设置可累加的用户属性
+/// \param properties 属性
+///
++ (void)userAddWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
+/// 删除用户
++ (void)userDelete;
 /// 主动上报本地数据事件
 + (void)flush;
 /// app 进入前台
 + (void)onAppForeground;
 /// app 进入后台
 + (void)onAppBackground;
++ (void)getServerTimeWithGetServerTimeFinish:(void (^ _Nonnull)(int64_t, NSString * _Nonnull))getServerTimeFinish;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
