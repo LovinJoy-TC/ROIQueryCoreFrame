@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Q7sRZFG/qk/SHP8xu6cRACYPJkA=
+		Ds/I/GUe3W9/gHUYhkDGnvyfBEU=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		s1ddQB2nm5ic8am8ap88UeAQ4YQ=
+		A6E2s/iihQQUuwHCIGmlet7kMqg=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		s1ddQB2nm5ic8am8ap88UeAQ4YQ=
+		A6E2s/iihQQUuwHCIGmlet7kMqg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -106,11 +106,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			s1ddQB2nm5ic8am8ap88UeAQ4YQ=
+			A6E2s/iihQQUuwHCIGmlet7kMqg=
 			</data>
 			<key>hash2</key>
 			<data>
-			G9yaJGtJgvPqO9AYlPxzyEhlltl8W5W8JMBWXWpRe30=
+			xSw0AiXCWGhDa/m5mgAyL5Y/YaLI437Pb7lj5Qs7qSE=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftdoc</key>
@@ -128,11 +128,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			s1ddQB2nm5ic8am8ap88UeAQ4YQ=
+			A6E2s/iihQQUuwHCIGmlet7kMqg=
 			</data>
 			<key>hash2</key>
 			<data>
-			G9yaJGtJgvPqO9AYlPxzyEhlltl8W5W8JMBWXWpRe30=
+			xSw0AiXCWGhDa/m5mgAyL5Y/YaLI437Pb7lj5Qs7qSE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
