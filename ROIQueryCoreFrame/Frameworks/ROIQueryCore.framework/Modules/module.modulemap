@@ -6,6 +6,6 @@ framework module ROIQueryCore {
 }
 
 module ROIQueryCore.Swift {
-    header "ROIQueryCore-Swift.h"
-    requires objc
+  header "ROIQueryCore-Swift.h"
+  requires objc
 }

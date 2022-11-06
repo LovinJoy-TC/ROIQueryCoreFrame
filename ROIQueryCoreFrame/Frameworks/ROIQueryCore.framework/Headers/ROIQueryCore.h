@@ -14,6 +14,7 @@ FOUNDATION_EXPORT double ROIQueryCoreVersionNumber;
 FOUNDATION_EXPORT const unsigned char ROIQueryCoreVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ROIQueryCore/PublicHeader.h>
+#import "TDRunTime-Header.h"
 
-
+#import "DTPerformance-Header.h"
 

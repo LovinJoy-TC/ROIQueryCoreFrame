@@ -4,146 +4,146 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/DTPerformance-Header.h</key>
+		<data>
+		Dk6OlLJBjCyKuw8ld9CdEty+OTs=
+		</data>
 		<key>Headers/ROIQueryCore-Swift.h</key>
 		<data>
-		riEPUOOzfWJslA+WuV5dl1pJJko=
+		JObsIyHrh1YyPOrlTmGPQRwQKRk=
 		</data>
 		<key>Headers/ROIQueryCore.h</key>
 		<data>
-		poIlllMP4rmoju7HhLormA8QvPM=
+		5jMEAzzS5a4IBKwp6lj5syJtszI=
+		</data>
+		<key>Headers/TDRunTime-Header.h</key>
+		<data>
+		ngF48yfao9hoCaWp5zypXtjfgK0=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Ds/I/GUe3W9/gHUYhkDGnvyfBEU=
+		MSfzuT3xmqVrVaThTAIrwxAB38I=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		sGB4ho38ziCPd/Ix6TGaFZkFFJk=
+		YKPgIuzDuHZtHBhRdOJbEzExbUk=
 		</data>
-		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64.swiftsourceinfo</key>
+		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		sGB4ho38ziCPd/Ix6TGaFZkFFJk=
+		FSPnLbho3G+LL9smI3XgVOqBIQ4=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		lJQv3B7MVSDd9L+onJcQVN2U+x4=
+		FhEb1yfh7lheaduqSOivtqeucvM=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		A6E2s/iihQQUuwHCIGmlet7kMqg=
-		</data>
-		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		lJQv3B7MVSDd9L+onJcQVN2U+x4=
-		</data>
-		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		A6E2s/iihQQUuwHCIGmlet7kMqg=
+		iHXY6/LfXO4j77m8CwuHFv9gL8U=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		TP9BjF5KdXGVdsQ4flYH5dqOcnU=
+		30F6dUhFvOpW3AFIIXj7k1lk4xM=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/DTPerformance-Header.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Dk6OlLJBjCyKuw8ld9CdEty+OTs=
+			</data>
+			<key>hash2</key>
+			<data>
+			QfV5/qvgHgkxdfmhmApaE6fQ/0EA06fCQX8Lnn0o438=
+			</data>
+		</dict>
 		<key>Headers/ROIQueryCore-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			riEPUOOzfWJslA+WuV5dl1pJJko=
+			JObsIyHrh1YyPOrlTmGPQRwQKRk=
 			</data>
 			<key>hash2</key>
 			<data>
-			gvs/sRtH00IQgl4Toan98Xy0ZYeOHcyxHsxWW6GBiTk=
+			D5X7axkVr3J0auoH9hc2k5NEuudHwqKdb0m0rU6224c=
 			</data>
 		</dict>
 		<key>Headers/ROIQueryCore.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			poIlllMP4rmoju7HhLormA8QvPM=
+			5jMEAzzS5a4IBKwp6lj5syJtszI=
 			</data>
 			<key>hash2</key>
 			<data>
-			4/KCpVejv0CpBObebcJSvsPmtImz6xtQ7qVcoPETBFI=
+			FWbTeCkDHixJ5xTJwbipmvCMmwUI+mE2dgogsq2PiCM=
+			</data>
+		</dict>
+		<key>Headers/TDRunTime-Header.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ngF48yfao9hoCaWp5zypXtjfgK0=
+			</data>
+			<key>hash2</key>
+			<data>
+			WyCbqxZ/ViJgleC0rxI7qmq7AMyibOGbTQ1b1Kysk8c=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sGB4ho38ziCPd/Ix6TGaFZkFFJk=
+			YKPgIuzDuHZtHBhRdOJbEzExbUk=
 			</data>
 			<key>hash2</key>
 			<data>
-			kfOwmAOkJueWQ6tRprihu7CICE7eejUDLG1tdgqLu8M=
+			qJykuLzFZioksekiLQ6y4K5C0BntkARBUNz+iji5kSI=
 			</data>
 		</dict>
-		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64.swiftsourceinfo</key>
+		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sGB4ho38ziCPd/Ix6TGaFZkFFJk=
+			FSPnLbho3G+LL9smI3XgVOqBIQ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			kfOwmAOkJueWQ6tRprihu7CICE7eejUDLG1tdgqLu8M=
+			KnRdWE4y6t4QM5zi5JDptPdHFgJy1Tku+7GLkZS2aNM=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lJQv3B7MVSDd9L+onJcQVN2U+x4=
+			FhEb1yfh7lheaduqSOivtqeucvM=
 			</data>
 			<key>hash2</key>
 			<data>
-			xKa7TtiX6e0TMRUPlYfi19QVarMYZLfExhkyNvRCfIE=
+			PgGSdhKB53ZCwkCluQ3ixvR8MYsvLNQExtnAP0+06b8=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			A6E2s/iihQQUuwHCIGmlet7kMqg=
+			iHXY6/LfXO4j77m8CwuHFv9gL8U=
 			</data>
 			<key>hash2</key>
 			<data>
-			xSw0AiXCWGhDa/m5mgAyL5Y/YaLI437Pb7lj5Qs7qSE=
-			</data>
-		</dict>
-		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			lJQv3B7MVSDd9L+onJcQVN2U+x4=
-			</data>
-			<key>hash2</key>
-			<data>
-			xKa7TtiX6e0TMRUPlYfi19QVarMYZLfExhkyNvRCfIE=
-			</data>
-		</dict>
-		<key>Modules/ROIQueryCore.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			A6E2s/iihQQUuwHCIGmlet7kMqg=
-			</data>
-			<key>hash2</key>
-			<data>
-			xSw0AiXCWGhDa/m5mgAyL5Y/YaLI437Pb7lj5Qs7qSE=
+			MWzVX8t1GF1H22MB0rQ69XAxS4RgtFgddkqiXK8vFtw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TP9BjF5KdXGVdsQ4flYH5dqOcnU=
+			30F6dUhFvOpW3AFIIXj7k1lk4xM=
 			</data>
 			<key>hash2</key>
 			<data>
-			xzC7Jl7vezApAkrKgBZFNWZ7ZO+Nxb2H2UsFRd+8M2E=
+			qd1sr1SbvjoJVjZOk4YIu8tkcxMoj7bFKIzbhj5Dl1k=
 			</data>
 		</dict>
 	</dict>
