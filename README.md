@@ -22,7 +22,7 @@ pod 'ROIQueryCoreFrame'
 
 ## Author
 
-min35256@163.com, xiaosailing@nodetower.com
+xiaosailing@nodetower.com
 
 ## License
 
