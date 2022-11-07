@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/ROIQueryCore-Swift.h</key>
 		<data>
-		JObsIyHrh1YyPOrlTmGPQRwQKRk=
+		j1aqT6WyOniAsvHsHQz92CSi2M8=
 		</data>
 		<key>Headers/ROIQueryCore.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		YKPgIuzDuHZtHBhRdOJbEzExbUk=
+		sMCujieOVuyPIVA2OG7KgMVJ4ok=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		FhEb1yfh7lheaduqSOivtqeucvM=
+		hM/+kMXDAw8atlCCqwnlQbs/eTo=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		iHXY6/LfXO4j77m8CwuHFv9gL8U=
+		zekAoKOIe+3yqW0DqKfZYDWyNT8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -62,11 +62,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JObsIyHrh1YyPOrlTmGPQRwQKRk=
+			j1aqT6WyOniAsvHsHQz92CSi2M8=
 			</data>
 			<key>hash2</key>
 			<data>
-			D5X7axkVr3J0auoH9hc2k5NEuudHwqKdb0m0rU6224c=
+			dr4XCcMQ8+Ji8OPoi01vp2pCEGgh5IAE5QgKQYyV7Ms=
 			</data>
 		</dict>
 		<key>Headers/ROIQueryCore.h</key>
@@ -95,11 +95,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YKPgIuzDuHZtHBhRdOJbEzExbUk=
+			sMCujieOVuyPIVA2OG7KgMVJ4ok=
 			</data>
 			<key>hash2</key>
 			<data>
-			qJykuLzFZioksekiLQ6y4K5C0BntkARBUNz+iji5kSI=
+			2mGyqtIVKYiHW8VGBeLUkxjSCTqZ1l2ZitqqhPKO/8c=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -117,22 +117,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FhEb1yfh7lheaduqSOivtqeucvM=
+			hM/+kMXDAw8atlCCqwnlQbs/eTo=
 			</data>
 			<key>hash2</key>
 			<data>
-			PgGSdhKB53ZCwkCluQ3ixvR8MYsvLNQExtnAP0+06b8=
+			MvZxmJgcbkCnPr1RPu4++7dcXydTJT9lS+r6nkkRoSA=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iHXY6/LfXO4j77m8CwuHFv9gL8U=
+			zekAoKOIe+3yqW0DqKfZYDWyNT8=
 			</data>
 			<key>hash2</key>
 			<data>
-			MWzVX8t1GF1H22MB0rQ69XAxS4RgtFgddkqiXK8vFtw=
+			u9S2VrFMWj7aU1FsxNeqrKcZgY9QQD/F6QUkRXGM/1c=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

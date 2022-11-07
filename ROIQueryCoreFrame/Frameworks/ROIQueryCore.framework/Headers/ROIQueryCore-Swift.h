@@ -526,6 +526,10 @@ SWIFT_CLASS("_TtC12ROIQueryCore11DTAnalytics")
 + (void)userAddWithProperties:(NSDictionary<NSString *, id> * _Nonnull)properties;
 /// 删除用户
 + (void)userDelete;
+/// 设置订阅原始订单id
+/// \param orderId 订阅原始订单id
+///
++ (void)setIasOriginalOrderIDWithOrderId:(NSString * _Nonnull)orderId;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
