@@ -309,6 +309,7 @@ typedef SWIFT_ENUM(NSInteger, Code, closed) {
   CodeCODE_UPDATE_DB_EXCEPTION = 2008,
   CodeCODE_QUERY_DB_ERROR = 2009,
   CodeCODE_QUERY_DB_EXCEPTION = 2010,
+  CodeCODE_ILLEGAL_TIME_ERROR = 2011,
 };
 
 @class NSString;
@@ -751,6 +752,7 @@ typedef SWIFT_ENUM(NSInteger, Msg, closed) {
   MsgINSERT_OLD_DATA_EXCEPTION = 3,
   MsgDELETE_DB_EXCEPTION = 4,
   MsgUPDATE_DB_EXCEPTION = 5,
+  MsgILLEGAL_TIME_ERROR = 6,
 };
 
 
