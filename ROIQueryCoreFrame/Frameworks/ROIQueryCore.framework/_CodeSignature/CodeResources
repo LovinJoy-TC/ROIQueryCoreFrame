@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/ROIQueryCore-Swift.h</key>
 		<data>
-		XTljsZvvrUlKjjFTzGEaUqaEjfk=
+		a1HfpFa3d020NYnzOqvxNeo5DhA=
 		</data>
 		<key>Headers/ROIQueryCore.h</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		wWAbasnA3x6UOB2L//dc7zipyvI=
+		50sGkBnJVtzeUVut/PM0XyY6prs=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		+aFD6UlifoSx5J2bXd1lAg05hHU=
+		M8LJJAh7WVYqnj/kkrDxP1Fmx5c=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		IHM04jLl8HKvyrrebUdfnTVjCQw=
+		9pMUctsNzCtDt52Lbyvi6hF/3qA=
 		</data>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		fJe8oH401ruXUP4HQBJQY+SQXT8=
+		DNe+ymNKD6iWOMEBnPDe/3s9BLI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -62,11 +62,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XTljsZvvrUlKjjFTzGEaUqaEjfk=
+			a1HfpFa3d020NYnzOqvxNeo5DhA=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ff3L2e7ubw6gjyPAKUhSVvLKTc0eMNpQcsZDmjip6GU=
+			HYkeijuLa4pWm2zK0K3kv6phQ21fk5R3ugCe4O9B0pk=
 			</data>
 		</dict>
 		<key>Headers/ROIQueryCore.h</key>
@@ -95,11 +95,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+aFD6UlifoSx5J2bXd1lAg05hHU=
+			M8LJJAh7WVYqnj/kkrDxP1Fmx5c=
 			</data>
 			<key>hash2</key>
 			<data>
-			+Qu6a3MZNKRRmQocHwCkH8oLY4A6dO78ZpeVhLqk/14=
+			RKETaJOVwrbm4i3Y+E3uKH/xm3N6m9LUtQN3JPPGDjA=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -117,22 +117,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IHM04jLl8HKvyrrebUdfnTVjCQw=
+			9pMUctsNzCtDt52Lbyvi6hF/3qA=
 			</data>
 			<key>hash2</key>
 			<data>
-			CKfOzy7LfGnvhvSS+NBR0FTEqigGZ0dK8VOR7h1xk+M=
+			oV7h2SzcQX9+GwN67tBKuQ6iXcznZfgRDGweqGUVSSI=
 			</data>
 		</dict>
 		<key>Modules/ROIQueryCore.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fJe8oH401ruXUP4HQBJQY+SQXT8=
+			DNe+ymNKD6iWOMEBnPDe/3s9BLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			4DphBKZXMObB6qOqPGI14GW6jdee/vCiQXsGBQg7ZVI=
+			rKeV76yEpf0o0KWt4GDkjk5+6C4ONYyTUGSefkhwO7A=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

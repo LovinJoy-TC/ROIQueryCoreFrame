@@ -553,6 +553,12 @@ SWIFT_CLASS("_TtC12ROIQueryCore16DTAnalyticsUtils")
 /// \param eventName 事件的名称
 ///
 + (void)trackTimerResumeWithEventName:(NSString * _Nonnull)eventName;
+/// 停止事件的计时器
+/// \param eventName 事件的名称
+///
+/// \param properties 事件的属性
+///
++ (void)trackTimerEndWithEventName:(NSString * _Nonnull)eventName properties:(NSDictionary<NSString *, id> * _Nonnull)properties;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
