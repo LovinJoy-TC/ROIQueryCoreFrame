@@ -252,7 +252,7 @@ using UInt = size_t;
 #endif
 
 #if defined(__OBJC__)
-typedef SWIFT_ENUM(NSInteger, AdMediation, closed) {
+typedef SWIFT_ENUM(NSInteger, AdMediation, open) {
   AdMediationIDLE = -1,
   AdMediationMOPUB = 0,
   AdMediationMAX = 1,
@@ -260,7 +260,7 @@ typedef SWIFT_ENUM(NSInteger, AdMediation, closed) {
   AdMediationCOMBO = 3,
 };
 
-typedef SWIFT_ENUM(NSInteger, AdPlatform, closed) {
+typedef SWIFT_ENUM(NSInteger, AdPlatform, open) {
   AdPlatformUNDISCLOSED = -2,
   AdPlatformIDLE = -1,
   AdPlatformADMOB = 0,
@@ -285,7 +285,7 @@ typedef SWIFT_ENUM(NSInteger, AdPlatform, closed) {
   AdPlatformLOVINJOYADS = 33,
 };
 
-typedef SWIFT_ENUM(NSInteger, AdType, closed) {
+typedef SWIFT_ENUM(NSInteger, AdType, open) {
   AdTypeIDLE = -1,
   AdTypeBANNER = 0,
   AdTypeINTERSTITIAL = 1,
@@ -303,7 +303,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore18AppStateDisposeBag")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-typedef SWIFT_ENUM(NSInteger, Code, closed) {
+typedef SWIFT_ENUM(NSInteger, Code, open) {
   CodeCODE_INIT_DB_ERROR = 2007,
   CodeCODE_INSERT_DB_NORMAL_ERROR = 2003,
   CodeCODE_UPDATE_DB_EXCEPTION = 2008,
@@ -563,7 +563,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore16DTAnalyticsUtils")
 @end
 
 /// log等级
-typedef SWIFT_ENUM(NSInteger, DTChannel, closed) {
+typedef SWIFT_ENUM(NSInteger, DTChannel, open) {
   DTChannelDEFALUT = 0,
   DTChannelGP = 1,
   DTChannelAPPSTORE = 2,
@@ -700,6 +700,7 @@ SWIFT_CLASS("_TtC12ROIQueryCore11DTIASReport")
 @end
 
 
+
 SWIFT_CLASS("_TtC12ROIQueryCore4HTTP")
 @interface HTTP : NSObject <NSURLSessionDelegate>
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -735,14 +736,14 @@ SWIFT_CLASS("_TtC12ROIQueryCore10HTTPResult")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-typedef SWIFT_ENUM(NSInteger, Level, closed) {
+typedef SWIFT_ENUM(NSInteger, Level, open) {
   LevelTYPE_ERROR = 1,
   LevelTYPE_WARNING = 2,
   LevelTYPE_MESSAGE = 3,
 };
 
 /// log等级
-typedef SWIFT_ENUM(NSInteger, LogDegree, closed) {
+typedef SWIFT_ENUM(NSInteger, LogDegree, open) {
   LogDegreeVerbose = 0,
   LogDegreeDebug = 1,
   LogDegreeNet = 2,
@@ -751,7 +752,7 @@ typedef SWIFT_ENUM(NSInteger, LogDegree, closed) {
   LogDegreeError = 5,
 };
 
-typedef SWIFT_ENUM(NSInteger, Msg, closed) {
+typedef SWIFT_ENUM(NSInteger, Msg, open) {
   MsgINIT_DB_ERROR = 0,
   MsgINSERT_DB_NORMAL_ERROR = 1,
   MsgINSERT_DB_EXCEPTION = 2,

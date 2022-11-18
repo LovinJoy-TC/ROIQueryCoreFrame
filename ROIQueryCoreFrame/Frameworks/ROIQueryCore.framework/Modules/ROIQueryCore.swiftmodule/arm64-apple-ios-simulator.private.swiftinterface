@@ -1,0 +1,1205 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ROIQueryCore
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreGraphics
+import CoreTelephony
+import Foundation
+import ObjectiveC
+import QuartzCore
+@_exported import ROIQueryCore
+import SQLite
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _System_Foundation
+@objc @_inheritsConvenienceInitializers @objcMembers public class DTIAPReport : ObjectiveC.NSObject {
+  @objc public static func reportEntrance(order: Swift.String, sku: Swift.String, price: Swift.Double, currency: Swift.String, seq: Swift.String, placement: Swift.String? = "")
+  @objc public static func reportToPurchase(order: Swift.String, sku: Swift.String, price: Swift.Double, currency: Swift.String, seq: Swift.String, placement: Swift.String? = "")
+  @objc public static func reportPurchased(order: Swift.String, sku: Swift.String, price: Swift.Double, currency: Swift.String, seq: Swift.String, placement: Swift.String? = "")
+  @objc public static func reportNotToPurchased(order: Swift.String, sku: Swift.String, price: Swift.Double, currency: Swift.String, seq: Swift.String, code: Swift.String, msg: Swift.String? = "", placement: Swift.String? = "")
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class DTAnalytics : ObjectiveC.NSObject {
+  @objc public static func getDataTowerId() -> Swift.String
+  @objc public static func track(eventName: Swift.String, properties: [Swift.String : Any]? = nil)
+  @objc public static func setAccountId(accountId: Swift.String)
+  @objc public static func setFirebaseAppInstanceID(fiid: Swift.String)
+  @objc public static func setAppsFlyerID(afuid: Swift.String)
+  @objc public static func setKochavaID(koid: Swift.String)
+  @objc public static func setAdjustId(adjustId: Swift.String)
+  @objc public static func userSet(properties: [Swift.String : Any])
+  @objc public static func userSetOnce(properties: [Swift.String : Any])
+  public static func userUnset(_properties: Swift.String...)
+  @objc public static func userAppend(properties: [Swift.String : Any])
+  @objc public static func userAdd(properties: [Swift.String : Any])
+  @objc public static func userDelete()
+  @objc public static func setIasOriginalOrderID(orderId: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class DTAnalyticsUtils : ObjectiveC.NSObject {
+  @objc public static func trackTimerStart(eventName: Swift.String)
+  @objc public static func trackTimerPause(eventName: Swift.String)
+  @objc public static func trackTimerResume(eventName: Swift.String)
+  @objc public static func trackTimerEnd(eventName: Swift.String, properties: [Swift.String : Any])
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum Level : Swift.Int {
+  case TYPE_ERROR = 1
+  case TYPE_WARNING = 2
+  case TYPE_MESSAGE = 3
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum Code : Swift.Int {
+  case CODE_INIT_DB_ERROR = 2007
+  case CODE_INSERT_DB_NORMAL_ERROR = 2003
+  case CODE_UPDATE_DB_EXCEPTION = 2008
+  case CODE_QUERY_DB_ERROR = 2009
+  case CODE_QUERY_DB_EXCEPTION = 2010
+  case CODE_ILLEGAL_TIME_ERROR = 2011
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum Msg : Swift.Int {
+  case INIT_DB_ERROR
+  case INSERT_DB_NORMAL_ERROR
+  case INSERT_DB_EXCEPTION
+  case INSERT_OLD_DATA_EXCEPTION
+  case DELETE_DB_EXCEPTION
+  case UPDATE_DB_EXCEPTION
+  case ILLEGAL_TIME_ERROR
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum HTTPFile {
+  case url(Foundation.URL, Swift.String?)
+  case data(Swift.String, Foundation.Data, Swift.String?)
+  case text(Swift.String, Swift.String, Swift.String?)
+}
+public enum HTTPMethod : Swift.String {
+  case delete
+  case get
+  case head
+  case options
+  case patch
+  case post
+  case put
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol URLComponentsConvertible {
+  var urlComponents: Foundation.URLComponents? { get }
+}
+extension Swift.String : ROIQueryCore.URLComponentsConvertible {
+  public var urlComponents: Foundation.URLComponents? {
+    get
+  }
+}
+extension Foundation.URL : ROIQueryCore.URLComponentsConvertible {
+  public var urlComponents: Foundation.URLComponents? {
+    get
+  }
+}
+@objc final public class HTTPResult : ObjectiveC.NSObject {
+  final public var content: Foundation.Data?
+  final public var response: Foundation.URLResponse?
+  final public var error: Swift.Error?
+  final public var request: Foundation.URLRequest? {
+    get
+  }
+  final public var task: Foundation.URLSessionTask?
+  final public var encoding: Swift.String.Encoding
+  final public var JSONReadingOptions: Foundation.JSONSerialization.ReadingOptions
+  final public var reason: Swift.String {
+    get
+  }
+  final public var isRedirect: Swift.Bool {
+    get
+  }
+  final public var isPermanentRedirect: Swift.Bool {
+    get
+  }
+  @objc override final public var description: Swift.String {
+    @objc get
+  }
+  public init(data: Foundation.Data?, response: Foundation.URLResponse?, error: Swift.Error?, task: Foundation.URLSessionTask?)
+  final public var json: Any? {
+    get
+  }
+  final public var statusCode: Swift.Int? {
+    get
+  }
+  final public var text: Swift.String? {
+    get
+  }
+  final public var headers: ROIQueryCore.CaseInsensitiveDictionary<Swift.String, Swift.String> {
+    get
+    set
+  }
+  final public var cookies: [Swift.String : Foundation.HTTPCookie] {
+    get
+    set
+  }
+  final public var ok: Swift.Bool {
+    get
+  }
+  final public var url: Foundation.URL? {
+    get
+  }
+  final public var date: Swift.Int {
+    get
+  }
+  final public var links: [Swift.String : [Swift.String : Swift.String]] {
+    get
+    set
+  }
+  final public func cancel()
+  @objc deinit
+}
+public struct CaseInsensitiveDictionary<Key, Value> : Swift.Collection, Swift.ExpressibleByDictionaryLiteral where Key : Swift.Hashable {
+  public typealias Element = (key: Key, value: Value)
+  public typealias Index = Swift.DictionaryIndex<Key, Value>
+  public var startIndex: ROIQueryCore.CaseInsensitiveDictionary<Key, Value>.Index {
+    get
+  }
+  public var endIndex: ROIQueryCore.CaseInsensitiveDictionary<Key, Value>.Index {
+    get
+  }
+  public func index(after: ROIQueryCore.CaseInsensitiveDictionary<Key, Value>.Index) -> ROIQueryCore.CaseInsensitiveDictionary<Key, Value>.Index
+  public var count: Swift.Int {
+    get
+  }
+  public var isEmpty: Swift.Bool {
+    get
+  }
+  public init(dictionaryLiteral elements: (Key, Value)...)
+  public init(dictionary: [Key : Value])
+  public subscript(position: ROIQueryCore.CaseInsensitiveDictionary<Key, Value>.Index) -> ROIQueryCore.CaseInsensitiveDictionary<Key, Value>.Element {
+    get
+  }
+  public subscript(key: Key) -> Value? {
+    get
+    set(newValue)
+  }
+  public func makeIterator() -> Swift.DictionaryIterator<Key, Value>
+  public var keys: Swift.Dictionary<Key, Value>.Keys {
+    get
+  }
+  public var values: Swift.Dictionary<Key, Value>.Values {
+    get
+  }
+  public typealias Indices = Swift.DefaultIndices<ROIQueryCore.CaseInsensitiveDictionary<Key, Value>>
+  public typealias Iterator = Swift.DictionaryIterator<Key, Value>
+  public typealias SubSequence = Swift.Slice<ROIQueryCore.CaseInsensitiveDictionary<Key, Value>>
+}
+public typealias Credentials = (username: Swift.String, password: Swift.String)
+public typealias TaskProgressHandler = (ROIQueryCore.HTTPProgress) -> Swift.Void
+public struct JustSessionDefaults {
+  public var JSONReadingOptions: Foundation.JSONSerialization.ReadingOptions
+  public var JSONWritingOptions: Foundation.JSONSerialization.WritingOptions
+  public var headers: [Swift.String : Swift.String]
+  public var multipartBoundary: Swift.String
+  public var credentialPersistence: Foundation.URLCredential.Persistence
+  public var encoding: Swift.String.Encoding
+  public var cachePolicy: Foundation.NSURLRequest.CachePolicy
+  public init(JSONReadingOptions: Foundation.JSONSerialization.ReadingOptions = JSONSerialization.ReadingOptions(rawValue: 0), JSONWritingOptions: Foundation.JSONSerialization.WritingOptions = JSONSerialization.WritingOptions(rawValue: 0), headers: [Swift.String : Swift.String] = [:], multipartBoundary: Swift.String = "Ju5tH77P15Aw350m3", credentialPersistence: Foundation.URLCredential.Persistence = .forSession, encoding: Swift.String.Encoding = String.Encoding.utf8, cachePolicy: Foundation.NSURLRequest.CachePolicy = .reloadIgnoringLocalCacheData)
+}
+public struct HTTPProgress {
+  public enum `Type` {
+    case upload
+    case download
+    public static func == (a: ROIQueryCore.HTTPProgress.`Type`, b: ROIQueryCore.HTTPProgress.`Type`) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let type: ROIQueryCore.HTTPProgress.`Type`
+  public let bytesProcessed: Swift.Int64
+  public let bytesExpectedToProcess: Swift.Int64
+  public var chunk: Foundation.Data?
+  public var percent: Swift.Float {
+    get
+  }
+}
+public protocol JustAdaptor {
+  func request(_ method: ROIQueryCore.HTTPMethod, url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any], data: [Swift.String : Any], json: Any?, headers: [Swift.String : Swift.String], files: [Swift.String : ROIQueryCore.HTTPFile], auth: ROIQueryCore.Credentials?, cookies: [Swift.String : Swift.String], redirects: Swift.Bool, timeout: Swift.Double?, urlQuery: Swift.String?, requestBody: Foundation.Data?, asyncProgressHandler: ROIQueryCore.TaskProgressHandler?, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)?) -> ROIQueryCore.HTTPResult
+  init(session: Foundation.URLSession?, defaults: ROIQueryCore.JustSessionDefaults?)
+}
+public struct JustOf<Adaptor> where Adaptor : ROIQueryCore.JustAdaptor {
+  public init(session: Foundation.URLSession? = nil, defaults: ROIQueryCore.JustSessionDefaults? = nil)
+}
+extension ROIQueryCore.JustOf {
+  @discardableResult
+  public func request(_ method: ROIQueryCore.HTTPMethod, url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any] = [:], data: [Swift.String : Any] = [:], json: Any? = nil, headers: [Swift.String : Swift.String] = [:], files: [Swift.String : ROIQueryCore.HTTPFile] = [:], auth: (Swift.String, Swift.String)? = nil, cookies: [Swift.String : Swift.String] = [:], allowRedirects: Swift.Bool = true, timeout: Swift.Double? = nil, urlQuery: Swift.String? = nil, requestBody: Foundation.Data? = nil, asyncProgressHandler: (ROIQueryCore.TaskProgressHandler)? = nil, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)? = nil) -> ROIQueryCore.HTTPResult
+  @discardableResult
+  public func delete(_ url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any] = [:], data: [Swift.String : Any] = [:], json: Any? = nil, headers: [Swift.String : Swift.String] = [:], files: [Swift.String : ROIQueryCore.HTTPFile] = [:], auth: (Swift.String, Swift.String)? = nil, cookies: [Swift.String : Swift.String] = [:], allowRedirects: Swift.Bool = true, timeout: Swift.Double? = nil, urlQuery: Swift.String? = nil, requestBody: Foundation.Data? = nil, asyncProgressHandler: (ROIQueryCore.TaskProgressHandler)? = nil, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)? = nil) -> ROIQueryCore.HTTPResult
+  @discardableResult
+  public func get(_ url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any] = [:], data: [Swift.String : Any] = [:], json: Any? = nil, headers: [Swift.String : Swift.String] = [:], files: [Swift.String : ROIQueryCore.HTTPFile] = [:], auth: (Swift.String, Swift.String)? = nil, cookies: [Swift.String : Swift.String] = [:], allowRedirects: Swift.Bool = true, timeout: Swift.Double? = nil, urlQuery: Swift.String? = nil, requestBody: Foundation.Data? = nil, asyncProgressHandler: (ROIQueryCore.TaskProgressHandler)? = nil, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)? = nil) -> ROIQueryCore.HTTPResult
+  @discardableResult
+  public func head(_ url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any] = [:], data: [Swift.String : Any] = [:], json: Any? = nil, headers: [Swift.String : Swift.String] = [:], files: [Swift.String : ROIQueryCore.HTTPFile] = [:], auth: (Swift.String, Swift.String)? = nil, cookies: [Swift.String : Swift.String] = [:], allowRedirects: Swift.Bool = true, timeout: Swift.Double? = nil, urlQuery: Swift.String? = nil, requestBody: Foundation.Data? = nil, asyncProgressHandler: (ROIQueryCore.TaskProgressHandler)? = nil, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)? = nil) -> ROIQueryCore.HTTPResult
+  @discardableResult
+  public func options(_ url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any] = [:], data: [Swift.String : Any] = [:], json: Any? = nil, headers: [Swift.String : Swift.String] = [:], files: [Swift.String : ROIQueryCore.HTTPFile] = [:], auth: (Swift.String, Swift.String)? = nil, cookies: [Swift.String : Swift.String] = [:], allowRedirects: Swift.Bool = true, timeout: Swift.Double? = nil, urlQuery: Swift.String? = nil, requestBody: Foundation.Data? = nil, asyncProgressHandler: (ROIQueryCore.TaskProgressHandler)? = nil, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)? = nil) -> ROIQueryCore.HTTPResult
+  @discardableResult
+  public func patch(_ url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any] = [:], data: [Swift.String : Any] = [:], json: Any? = nil, headers: [Swift.String : Swift.String] = [:], files: [Swift.String : ROIQueryCore.HTTPFile] = [:], auth: (Swift.String, Swift.String)? = nil, cookies: [Swift.String : Swift.String] = [:], allowRedirects: Swift.Bool = true, timeout: Swift.Double? = nil, urlQuery: Swift.String? = nil, requestBody: Foundation.Data? = nil, asyncProgressHandler: (ROIQueryCore.TaskProgressHandler)? = nil, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)? = nil) -> ROIQueryCore.HTTPResult
+  @discardableResult
+  public func post(_ url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any] = [:], data: [Swift.String : Any] = [:], json: Any? = nil, headers: [Swift.String : Swift.String] = [:], files: [Swift.String : ROIQueryCore.HTTPFile] = [:], auth: (Swift.String, Swift.String)? = nil, cookies: [Swift.String : Swift.String] = [:], allowRedirects: Swift.Bool = true, timeout: Swift.Double? = nil, urlQuery: Swift.String? = nil, requestBody: Foundation.Data? = nil, asyncProgressHandler: (ROIQueryCore.TaskProgressHandler)? = nil, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)? = nil) -> ROIQueryCore.HTTPResult
+  @discardableResult
+  public func put(_ url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any] = [:], data: [Swift.String : Any] = [:], json: Any? = nil, headers: [Swift.String : Swift.String] = [:], files: [Swift.String : ROIQueryCore.HTTPFile] = [:], auth: (Swift.String, Swift.String)? = nil, cookies: [Swift.String : Swift.String] = [:], allowRedirects: Swift.Bool = true, timeout: Swift.Double? = nil, urlQuery: Swift.String? = nil, requestBody: Foundation.Data? = nil, asyncProgressHandler: (ROIQueryCore.TaskProgressHandler)? = nil, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)? = nil) -> ROIQueryCore.HTTPResult
+}
+@objc final public class HTTP : ObjectiveC.NSObject, Foundation.URLSessionDelegate, ROIQueryCore.JustAdaptor {
+  public init(session: Foundation.URLSession? = nil, defaults: ROIQueryCore.JustSessionDefaults? = nil)
+  final public func synthesizeRequest(_ method: ROIQueryCore.HTTPMethod, url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any], data: [Swift.String : Any], json: Any?, headers: ROIQueryCore.CaseInsensitiveDictionary<Swift.String, Swift.String>, files: [Swift.String : ROIQueryCore.HTTPFile], auth: ROIQueryCore.Credentials?, timeout: Swift.Double?, urlQuery: Swift.String?, requestBody: Foundation.Data?) -> Foundation.URLRequest?
+  final public func request(_ method: ROIQueryCore.HTTPMethod, url: ROIQueryCore.URLComponentsConvertible, params: [Swift.String : Any], data: [Swift.String : Any], json: Any?, headers: [Swift.String : Swift.String], files: [Swift.String : ROIQueryCore.HTTPFile], auth: ROIQueryCore.Credentials?, cookies: [Swift.String : Swift.String], redirects: Swift.Bool, timeout: Swift.Double?, urlQuery: Swift.String?, requestBody: Foundation.Data?, asyncProgressHandler: ROIQueryCore.TaskProgressHandler?, asyncCompletionHandler: ((ROIQueryCore.HTTPResult) -> Swift.Void)?) -> ROIQueryCore.HTTPResult
+  @objc deinit
+}
+extension ROIQueryCore.HTTP : Foundation.URLSessionTaskDelegate, Foundation.URLSessionDataDelegate {
+  @objc final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+  @objc final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest, completionHandler: @escaping (Foundation.URLRequest?) -> Swift.Void)
+  @objc final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didSendBodyData bytesSent: Swift.Int64, totalBytesSent: Swift.Int64, totalBytesExpectedToSend: Swift.Int64)
+  @objc final public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
+  @objc final public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
+}
+public let Just: ROIQueryCore.JustOf<ROIQueryCore.HTTP>
+open class KeychainWrapper {
+  @available(*, deprecated, message: "KeychainWrapper.defaultKeychainWrapper is deprecated since version 2.2.1, use KeychainWrapper.standard instead")
+  public static let defaultKeychainWrapper: ROIQueryCore.KeychainWrapper
+  public static let standard: ROIQueryCore.KeychainWrapper
+  public var serviceName: Swift.String {
+    get
+  }
+  public var accessGroup: Swift.String? {
+    get
+  }
+  public init(serviceName: Swift.String, accessGroup: Swift.String? = nil)
+  open func hasValue(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  open func accessibilityOfKey(_ key: Swift.String) -> ROIQueryCore.KeychainItemAccessibility?
+  open func allKeys() -> Swift.Set<Swift.String>
+  open func integer(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Int?
+  open func float(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Float?
+  open func double(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Double?
+  open func bool(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool?
+  open func string(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.String?
+  open func object(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Foundation.NSCoding?
+  open func data(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Foundation.Data?
+  open func dataRef(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Foundation.Data?
+  @discardableResult
+  open func set(_ value: Swift.Int, forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @discardableResult
+  open func set(_ value: Swift.Float, forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @discardableResult
+  open func set(_ value: Swift.Double, forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @discardableResult
+  open func set(_ value: Swift.Bool, forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @discardableResult
+  open func set(_ value: Swift.String, forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @discardableResult
+  open func set(_ value: Foundation.NSCoding, forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @discardableResult
+  open func set(_ value: Foundation.Data, forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @available(*, deprecated, message: "remove is deprecated since version 2.2.1, use removeObject instead")
+  @discardableResult
+  open func remove(key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @discardableResult
+  open func removeObject(forKey key: Swift.String, withAccessibility accessibility: ROIQueryCore.KeychainItemAccessibility? = nil, isSynchronizable: Swift.Bool = false) -> Swift.Bool
+  @discardableResult
+  open func removeAllKeys() -> Swift.Bool
+  open class func wipeKeychain()
+  @objc deinit
+}
+extension ROIQueryCore.KeychainWrapper {
+  public func remove(forKey key: ROIQueryCore.KeychainWrapper.Key)
+}
+extension ROIQueryCore.KeychainWrapper {
+  public subscript(key: ROIQueryCore.KeychainWrapper.Key) -> Swift.String? {
+    get
+    set
+  }
+  public subscript(key: ROIQueryCore.KeychainWrapper.Key) -> Swift.Bool? {
+    get
+    set
+  }
+  public subscript(key: ROIQueryCore.KeychainWrapper.Key) -> Swift.Int? {
+    get
+    set
+  }
+  public subscript(key: ROIQueryCore.KeychainWrapper.Key) -> Swift.Double? {
+    get
+    set
+  }
+  public subscript(key: ROIQueryCore.KeychainWrapper.Key) -> Swift.Float? {
+    get
+    set
+  }
+  public subscript(key: ROIQueryCore.KeychainWrapper.Key) -> CoreFoundation.CGFloat? {
+    get
+    set
+  }
+  public subscript(key: ROIQueryCore.KeychainWrapper.Key) -> Foundation.Data? {
+    get
+    set
+  }
+}
+extension ROIQueryCore.KeychainWrapper {
+  public func data(forKey key: ROIQueryCore.KeychainWrapper.Key) -> Foundation.Data?
+  public func bool(forKey key: ROIQueryCore.KeychainWrapper.Key) -> Swift.Bool?
+  public func integer(forKey key: ROIQueryCore.KeychainWrapper.Key) -> Swift.Int?
+  public func float(forKey key: ROIQueryCore.KeychainWrapper.Key) -> Swift.Float?
+  public func cgFloat(forKey key: ROIQueryCore.KeychainWrapper.Key) -> CoreFoundation.CGFloat?
+  public func double(forKey key: ROIQueryCore.KeychainWrapper.Key) -> Swift.Double?
+  public func string(forKey key: ROIQueryCore.KeychainWrapper.Key) -> Swift.String?
+}
+extension ROIQueryCore.KeychainWrapper {
+  public struct Key : Swift.Hashable, Swift.RawRepresentable, Swift.ExpressibleByStringLiteral {
+    public var rawValue: Swift.String
+    public init(rawValue: Swift.String)
+    public init(stringLiteral value: Swift.String)
+    public typealias ExtendedGraphemeClusterLiteralType = Swift.String
+    public typealias RawValue = Swift.String
+    public typealias StringLiteralType = Swift.String
+    public typealias UnicodeScalarLiteralType = Swift.String
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class DTIASReport : ObjectiveC.NSObject {
+  @objc public static func reportToShow(iasSeq: Swift.String, iasEntrance: Swift.String? = nil, iasPlacement: Swift.String)
+  @objc public static func reportShowSuccess(iasSeq: Swift.String, iasEntrance: Swift.String? = nil, iasPlacement: Swift.String)
+  @objc public static func reportShowFail(iasSeq: Swift.String, iasEntrance: Swift.String? = nil, iasPlacement: Swift.String, iasCode: Swift.String, iasMsg: Swift.String? = nil)
+  @objc public static func reportSubscribe(iasSeq: Swift.String, iasEntrance: Swift.String? = nil, iasPlacement: Swift.String, iasSku: Swift.String, iasOrderId: Swift.String, iasPrice: Swift.String, iasCurrency: Swift.String)
+  @objc public static func reportSubscribeSuccess(iasSeq: Swift.String, iasEntrance: Swift.String? = nil, iasPlacement: Swift.String, iasSku: Swift.String, iasOrderId: Swift.String, iasOriginalOrderId: Swift.String, iasPrice: Swift.String, iasCurrency: Swift.String)
+  @objc public static func reportSubscribeFail(iasSeq: Swift.String, iasEntrance: Swift.String? = nil, iasPlacement: Swift.String, iasSku: Swift.String, iasOrderId: Swift.String, iasOriginalOrderId: Swift.String, iasPrice: Swift.String, iasCurrency: Swift.String, iasCode: Swift.String, iasMsg: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class DT : ObjectiveC.NSObject {
+  @objc public static func initSDK(appid: Swift.String, channel: ROIQueryCore.DTChannel = .DEFALUT, isDebug: Swift.Bool = false, logLevel: ROIQueryCore.LogDegree = .verbose, commonProperties: [Swift.String : Any]? = nil)
+  @objc public static func initSDK(appid: Swift.String, channel: ROIQueryCore.DTChannel = .DEFALUT, isDebug: Swift.Bool = false, logLevel: ROIQueryCore.LogDegree = .verbose)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@inlinable public func SLogError(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line) {
+    SLog.log(message(), type: .error, file: file, function: function, line: line)
+}
+@inlinable public func SLogWarn(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line) {
+    SLog.log(message(), type: .warn, file: file, function: function, line: line)
+}
+@inlinable public func SLogInfo(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line) {
+    SLog.log(message(), type: .info, file: file, function: function, line: line)
+}
+@inlinable public func SLogNet(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line) {
+    SLog.log(message(), type: .net, file: file, function: function, line: line)
+}
+@inlinable public func SLogDebug(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line) {
+    SLog.log(message(), type: .debug, file: file, function: function, line: line)
+}
+@inlinable public func SLogVerbose(_ message: @autoclosure () -> Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line) {
+    SLog.log(message(), type: .verbose, file: file, function: function, line: line)
+}
+@objc public enum LogDegree : Swift.Int {
+  case verbose = 0
+  case debug = 1
+  case net = 2
+  case info = 3
+  case warn = 4
+  case error = 5
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class SLog {
+  public static var shouldLog: Swift.Bool
+  public static var getLogFileURL: Foundation.URL {
+    get
+  }
+  public static var defaultLogDegree: ROIQueryCore.LogDegree
+  public static var showNetLog: Swift.Bool
+  public static var maxLogAge: Foundation.TimeInterval?
+  public static var addFileLog: Swift.Bool {
+    get
+    set
+  }
+  public static func verbose(_ message: Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func debug(_ message: Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func net(_ message: Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func info(_ message: Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func warn(_ message: Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func error(_ message: Swift.String, file: Swift.StaticString = #file, function: Swift.StaticString = #function, line: Swift.UInt = #line)
+  public static func dprint(_ items: Any..., separator: Swift.String = " ", terminator: Swift.String = "\n")
+  public static func log(_ message: @autoclosure () -> Swift.String, type: ROIQueryCore.LogDegree, file: Swift.StaticString, function: Swift.StaticString, line: Swift.UInt)
+  @objc deinit
+}
+public typealias AppStateEventHandler = (ROIQueryCore.AppStateObserver.AppState) -> Swift.Void
+@_hasMissingDesignatedInitializers final public class AppStateObserver {
+  public enum AppState : Swift.String, Swift.Equatable {
+    case didBecomeActive
+    case willResignActive
+    case willEnterForeground
+    case didEnterBackground
+    case willTerminate
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  @objc deinit
+  public static let shared: ROIQueryCore.AppStateObserver
+  @discardableResult
+  public static func subscribe(_ handler: @escaping ROIQueryCore.AppStateEventHandler) -> ROIQueryCore.AppStateDisposeBag
+}
+@objc @_hasMissingDesignatedInitializers public class AppStateDisposeBag : ObjectiveC.NSObject {
+  public func dispose()
+  @objc deinit
+}
+public enum SwiftyJSONError : Swift.Int, Swift.Error {
+  case unsupportedType
+  case indexOutOfBounds
+  case elementTooDeep
+  case wrongType
+  case notExist
+  case invalidJSON
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension ROIQueryCore.SwiftyJSONError : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+public enum Type : Swift.Int {
+  case number
+  case string
+  case bool
+  case array
+  case dictionary
+  case null
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct SwiftyJSON {
+  public init(data: Foundation.Data, options opt: Foundation.JSONSerialization.ReadingOptions = []) throws
+  public init(_ object: Any)
+  public init(parseJSON jsonString: Swift.String)
+  public mutating func merge(with other: ROIQueryCore.SwiftyJSON) throws
+  public func merged(with other: ROIQueryCore.SwiftyJSON) throws -> ROIQueryCore.SwiftyJSON
+  public var type: ROIQueryCore.`Type` {
+    get
+  }
+  public var error: ROIQueryCore.SwiftyJSONError? {
+    get
+  }
+  public var object: Any {
+    get
+    set
+  }
+  @available(*, unavailable, renamed: "null")
+  public static var nullJSON: ROIQueryCore.SwiftyJSON {
+    get
+  }
+  public static var null: ROIQueryCore.SwiftyJSON {
+    get
+  }
+}
+public enum Index<T> : Swift.Comparable {
+  case array(Swift.Int)
+  case dictionary(Swift.DictionaryIndex<Swift.String, T>)
+  case null
+  public static func == (lhs: ROIQueryCore.Index<T>, rhs: ROIQueryCore.Index<T>) -> Swift.Bool
+  public static func < (lhs: ROIQueryCore.Index<T>, rhs: ROIQueryCore.Index<T>) -> Swift.Bool
+}
+public typealias JSONIndex = ROIQueryCore.Index<ROIQueryCore.SwiftyJSON>
+public typealias JSONRawIndex = ROIQueryCore.Index<Any>
+extension ROIQueryCore.SwiftyJSON : Swift.Collection {
+  public typealias Index = ROIQueryCore.JSONRawIndex
+  public var startIndex: ROIQueryCore.SwiftyJSON.Index {
+    get
+  }
+  public var endIndex: ROIQueryCore.SwiftyJSON.Index {
+    get
+  }
+  public func index(after i: ROIQueryCore.SwiftyJSON.Index) -> ROIQueryCore.SwiftyJSON.Index
+  public subscript(position: ROIQueryCore.SwiftyJSON.Index) -> (Swift.String, ROIQueryCore.SwiftyJSON) {
+    get
+  }
+  public typealias Element = (Swift.String, ROIQueryCore.SwiftyJSON)
+  public typealias Indices = Swift.DefaultIndices<ROIQueryCore.SwiftyJSON>
+  public typealias Iterator = Swift.IndexingIterator<ROIQueryCore.SwiftyJSON>
+  public typealias SubSequence = Swift.Slice<ROIQueryCore.SwiftyJSON>
+}
+public enum JSONKey {
+  case index(Swift.Int)
+  case key(Swift.String)
+}
+public protocol JSONSubscriptType {
+  var jsonKey: ROIQueryCore.JSONKey { get }
+}
+extension Swift.Int : ROIQueryCore.JSONSubscriptType {
+  public var jsonKey: ROIQueryCore.JSONKey {
+    get
+  }
+}
+extension Swift.String : ROIQueryCore.JSONSubscriptType {
+  public var jsonKey: ROIQueryCore.JSONKey {
+    get
+  }
+}
+extension ROIQueryCore.SwiftyJSON {
+  public subscript(path: [ROIQueryCore.JSONSubscriptType]) -> ROIQueryCore.SwiftyJSON {
+    get
+    set
+  }
+  public subscript(path: ROIQueryCore.JSONSubscriptType...) -> ROIQueryCore.SwiftyJSON {
+    get
+    set
+  }
+}
+extension ROIQueryCore.SwiftyJSON : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.StringLiteralType)
+  public init(extendedGraphemeClusterLiteral value: Swift.StringLiteralType)
+  public init(unicodeScalarLiteral value: Swift.StringLiteralType)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.StringLiteralType
+  public typealias StringLiteralType = Swift.StringLiteralType
+  public typealias UnicodeScalarLiteralType = Swift.StringLiteralType
+}
+extension ROIQueryCore.SwiftyJSON : Swift.ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift.IntegerLiteralType)
+  public typealias IntegerLiteralType = Swift.IntegerLiteralType
+}
+extension ROIQueryCore.SwiftyJSON : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.BooleanLiteralType)
+  public typealias BooleanLiteralType = Swift.BooleanLiteralType
+}
+extension ROIQueryCore.SwiftyJSON : Swift.ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift.FloatLiteralType)
+  public typealias FloatLiteralType = Swift.FloatLiteralType
+}
+extension ROIQueryCore.SwiftyJSON : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Any)...)
+  public typealias Key = Swift.String
+  public typealias Value = Any
+}
+extension ROIQueryCore.SwiftyJSON : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Any...)
+  public typealias ArrayLiteralElement = Any
+}
+extension ROIQueryCore.SwiftyJSON : Swift.RawRepresentable {
+  public init?(rawValue: Any)
+  public var rawValue: Any {
+    get
+  }
+  public func rawData(options opt: Foundation.JSONSerialization.WritingOptions = JSONSerialization.WritingOptions(rawValue: 0)) throws -> Foundation.Data
+  public func rawString(_ encoding: Swift.String.Encoding = .utf8, options opt: Foundation.JSONSerialization.WritingOptions = .prettyPrinted) -> Swift.String?
+  public func rawString(_ options: [ROIQueryCore.writingOptionsKeys : Any]) -> Swift.String?
+  public typealias RawValue = Any
+}
+extension ROIQueryCore.SwiftyJSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension ROIQueryCore.SwiftyJSON {
+  public var array: [ROIQueryCore.SwiftyJSON]? {
+    get
+  }
+  public var arrayValue: [ROIQueryCore.SwiftyJSON] {
+    get
+  }
+  public var arrayObject: [Any]? {
+    get
+    set
+  }
+}
+extension ROIQueryCore.SwiftyJSON {
+  public var dictionary: [Swift.String : ROIQueryCore.SwiftyJSON]? {
+    get
+  }
+  public var dictionaryValue: [Swift.String : ROIQueryCore.SwiftyJSON] {
+    get
+  }
+  public var dictionaryObject: [Swift.String : Any]? {
+    get
+    set
+  }
+}
+extension ROIQueryCore.SwiftyJSON {
+  public var bool: Swift.Bool? {
+    get
+    set
+  }
+  public var boolValue: Swift.Bool {
+    get
+    set
+  }
+}
+extension ROIQueryCore.SwiftyJSON {
+  public var string: Swift.String? {
+    get
+    set
+  }
+  public var stringValue: Swift.String {
+    get
+    set
+  }
+}
+extension ROIQueryCore.SwiftyJSON {
+  public var number: Foundation.NSNumber? {
+    get
+    set
+  }
+  public var numberValue: Foundation.NSNumber {
+    get
+    set
+  }
+}
+extension ROIQueryCore.SwiftyJSON {
+  public var null: Foundation.NSNull? {
+    get
+    set
+  }
+  public func exists() -> Swift.Bool
+}
+extension ROIQueryCore.SwiftyJSON {
+  public var url: Foundation.URL? {
+    get
+    set
+  }
+}
+extension ROIQueryCore.SwiftyJSON {
+  public var double: Swift.Double? {
+    get
+    set
+  }
+  public var doubleValue: Swift.Double {
+    get
+    set
+  }
+  public var float: Swift.Float? {
+    get
+    set
+  }
+  public var floatValue: Swift.Float {
+    get
+    set
+  }
+  public var int: Swift.Int? {
+    get
+    set
+  }
+  public var intValue: Swift.Int {
+    get
+    set
+  }
+  public var uInt: Swift.UInt? {
+    get
+    set
+  }
+  public var uIntValue: Swift.UInt {
+    get
+    set
+  }
+  public var int8: Swift.Int8? {
+    get
+    set
+  }
+  public var int8Value: Swift.Int8 {
+    get
+    set
+  }
+  public var uInt8: Swift.UInt8? {
+    get
+    set
+  }
+  public var uInt8Value: Swift.UInt8 {
+    get
+    set
+  }
+  public var int16: Swift.Int16? {
+    get
+    set
+  }
+  public var int16Value: Swift.Int16 {
+    get
+    set
+  }
+  public var uInt16: Swift.UInt16? {
+    get
+    set
+  }
+  public var uInt16Value: Swift.UInt16 {
+    get
+    set
+  }
+  public var int32: Swift.Int32? {
+    get
+    set
+  }
+  public var int32Value: Swift.Int32 {
+    get
+    set
+  }
+  public var uInt32: Swift.UInt32? {
+    get
+    set
+  }
+  public var uInt32Value: Swift.UInt32 {
+    get
+    set
+  }
+  public var int64: Swift.Int64? {
+    get
+    set
+  }
+  public var int64Value: Swift.Int64 {
+    get
+    set
+  }
+  public var uInt64: Swift.UInt64? {
+    get
+    set
+  }
+  public var uInt64Value: Swift.UInt64 {
+    get
+    set
+  }
+}
+extension ROIQueryCore.SwiftyJSON : Swift.Comparable {
+}
+public func == (lhs: ROIQueryCore.SwiftyJSON, rhs: ROIQueryCore.SwiftyJSON) -> Swift.Bool
+public func <= (lhs: ROIQueryCore.SwiftyJSON, rhs: ROIQueryCore.SwiftyJSON) -> Swift.Bool
+public func >= (lhs: ROIQueryCore.SwiftyJSON, rhs: ROIQueryCore.SwiftyJSON) -> Swift.Bool
+public func > (lhs: ROIQueryCore.SwiftyJSON, rhs: ROIQueryCore.SwiftyJSON) -> Swift.Bool
+public func < (lhs: ROIQueryCore.SwiftyJSON, rhs: ROIQueryCore.SwiftyJSON) -> Swift.Bool
+public enum writingOptionsKeys {
+  case jsonSerialization
+  case castNilToNSNull
+  case maxObjextDepth
+  case encoding
+  public static func == (a: ROIQueryCore.writingOptionsKeys, b: ROIQueryCore.writingOptionsKeys) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension ROIQueryCore.SwiftyJSON : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public enum AdType : Swift.Int {
+  case IDLE = -1
+  case BANNER = 0
+  case INTERSTITIAL = 1
+  case NATIVE = 2
+  case REWARDED = 3
+  case REWARDED_INTERSTITIAL = 4
+  case APP_OPEN = 5
+  case MREC = 6
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AdMediation : Swift.Int {
+  case IDLE = -1
+  case MOPUB = 0
+  case MAX = 1
+  case HISAVANA = 2
+  case COMBO = 3
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum AdPlatform : Swift.Int {
+  case UNDISCLOSED = -2
+  case IDLE = -1
+  case ADMOB = 0
+  case MOPUB = 1
+  case ADCOLONY = 2
+  case APPLOVIN = 3
+  case CHARTBOOST = 4
+  case FACEBOOK = 5
+  case INMOBI = 6
+  case IRONSOURCE = 7
+  case PANGLE = 8
+  case SNAP_AUDIENCE_NETWORK = 9
+  case TAPJOY = 10
+  case UNITY_ADS = 11
+  case VERIZON_MEDIA = 12
+  case VUNGLE = 13
+  case ADX = 14
+  case COMBO = 15
+  case BIGO = 16
+  case HISAVANA = 17
+  case APPLOVIN_EXCHANGE = 18
+  case LOVINJOYADS = 33
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class DTAdReport : ObjectiveC.NSObject {
+  @objc public class func reportLoadBegin(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, seq: Swift.String, properties: [Swift.String : Any]? = nil)
+  @objc public class func reportLoadEnd(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, duration: Swift.Int64, result: Swift.Bool, seq: Swift.String, errorCode: Swift.Int, errorMessage: Swift.String, properties: [Swift.String : Any]? = nil)
+  @objc public class func reportToShow(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportShow(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportClick(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportAdShowFail(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, errorCode: Swift.Int, errorMessage: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportRewarded(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportConversionByClick(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportConversionByLeftApp(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportConversionByRewarded(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportClose(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportPaid(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, value: Swift.String, currency: Swift.String, precision: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportPaid(id: Swift.String, type: ROIQueryCore.AdType, platform: Swift.String, adgroupType: Swift.String, location: Swift.String, seq: Swift.String, mediation: ROIQueryCore.AdMediation, mediationId: Swift.String, value: Swift.String, currency: Swift.String, precision: Swift.String, country: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func reportLeftApp(id: Swift.String, type: ROIQueryCore.AdType, platform: ROIQueryCore.AdPlatform, location: Swift.String, seq: Swift.String, properties: [Swift.String : Any]? = [:], entrance: Swift.String? = "")
+  @objc public class func generateUUID() -> Swift.String
+  @objc public class func getPlatform(mediation: Swift.Int, networkName: Swift.String, networkPlacementId: Swift.String, adgroupType: Swift.String) -> ROIQueryCore.AdPlatform
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DTChannel : Swift.Int {
+  case DEFALUT
+  case GP
+  case APPSTORE
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public typealias Properties = [Swift.String : Any?]
+public typealias Rlog = ROIQueryCore.SLog
+public enum ReachabilityError : Swift.Error {
+  case failedToCreateWithAddress(Darwin.sockaddr, Swift.Int32)
+  case failedToCreateWithHostname(Swift.String, Swift.Int32)
+  case unableToSetCallback(Swift.Int32)
+  case unableToSetDispatchQueue(Swift.Int32)
+  case unableToGetFlags(Swift.Int32)
+}
+@available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
+public let ReachabilityChangedNotification: Foundation.NSNotification.Name
+extension Foundation.NSNotification.Name {
+  public static let reachabilityChanged: Foundation.Notification.Name
+}
+public class Reachability {
+  public typealias NetworkReachable = (ROIQueryCore.Reachability) -> ()
+  public typealias NetworkUnreachable = (ROIQueryCore.Reachability) -> ()
+  @available(*, unavailable, renamed: "Connection")
+  public enum NetworkStatus : Swift.CustomStringConvertible {
+    case notReachable, reachableViaWiFi, reachableViaWWAN
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: ROIQueryCore.Reachability.NetworkStatus, b: ROIQueryCore.Reachability.NetworkStatus) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Connection : Swift.CustomStringConvertible {
+    case unavailable, wifi, cellular
+    public var description: Swift.String {
+      get
+    }
+    @available(*, deprecated, renamed: "unavailable")
+    public static let none: ROIQueryCore.Reachability.Connection
+    public static func == (a: ROIQueryCore.Reachability.Connection, b: ROIQueryCore.Reachability.Connection) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var whenReachable: ROIQueryCore.Reachability.NetworkReachable?
+  public var whenUnreachable: ROIQueryCore.Reachability.NetworkUnreachable?
+  @available(*, deprecated, renamed: "allowsCellularConnection")
+  final public let reachableOnWWAN: Swift.Bool
+  public var allowsCellularConnection: Swift.Bool
+  public var notificationCenter: Foundation.NotificationCenter
+  @available(*, deprecated, renamed: "connection.description")
+  public var currentReachabilityString: Swift.String {
+    get
+  }
+  @available(*, unavailable, renamed: "connection")
+  public var currentReachabilityStatus: ROIQueryCore.Reachability.Connection {
+    get
+  }
+  public var connection: ROIQueryCore.Reachability.Connection {
+    get
+  }
+  required public init(reachabilityRef: SystemConfiguration.SCNetworkReachability, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main)
+  convenience public init(hostname: Swift.String, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
+  convenience public init(queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
+  @objc deinit
+}
+extension ROIQueryCore.Reachability {
+  public func startNotifier() throws
+  public func stopNotifier()
+  @available(*, deprecated, message: "Please use `connection != .none`")
+  public var isReachable: Swift.Bool {
+    get
+  }
+  @available(*, deprecated, message: "Please use `connection == .cellular`")
+  public var isReachableViaWWAN: Swift.Bool {
+    get
+  }
+  @available(*, deprecated, message: "Please use `connection == .wifi`")
+  public var isReachableViaWiFi: Swift.Bool {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+public enum KeychainItemAccessibility {
+  @available(iOS 4, *)
+  case afterFirstUnlock
+  @available(iOS 4, *)
+  case afterFirstUnlockThisDeviceOnly
+  @available(iOS 4, *)
+  case always
+  @available(iOS 8, *)
+  case whenPasscodeSetThisDeviceOnly
+  @available(iOS 4, *)
+  case alwaysThisDeviceOnly
+  @available(iOS 4, *)
+  case whenUnlocked
+  @available(iOS 4, *)
+  case whenUnlockedThisDeviceOnly
+  public static func == (a: ROIQueryCore.KeychainItemAccessibility, b: ROIQueryCore.KeychainItemAccessibility) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class AdUtils {
+  public static func generateUUID() -> Swift.String
+  @objc deinit
+}
+extension Foundation.Date {
+  public init?(fromString string: Swift.String, format: Foundation.Date.DateFormatType, timeZone: Foundation.Date.TimeZoneType = .local, locale: Foundation.Locale = Foundation.Locale.current, isLenient: Swift.Bool = true)
+  public init?(detectFromString string: Swift.String)
+  public func toString(style: Foundation.Date.DateStyleType = .short) -> Swift.String?
+  public func toString(format: Foundation.Date.DateFormatType, timeZone: Foundation.Date.TimeZoneType = .local, locale: Foundation.Locale = Locale.current) -> Swift.String?
+  public func toString(dateStyle: Foundation.DateFormatter.Style, timeStyle: Foundation.DateFormatter.Style, isRelative: Swift.Bool = false, timeZone: Foundation.TimeZone = Foundation.NSTimeZone.local, locale: Foundation.Locale = Locale.current) -> Swift.String?
+  public func toStringWithRelativeTime(customStrings: [Foundation.Date.RelativeTimeType : Swift.String]? = nil) -> Swift.String?
+  public func compare(_ comparison: Foundation.Date.DateComparisonType) -> Swift.Bool
+  public func offset(_ component: Foundation.Date.DateComponentType, value: Swift.Int) -> Foundation.Date?
+  public func adjust(hour: Swift.Int? = nil, minute: Swift.Int? = nil, second: Swift.Int? = nil, day: Swift.Int? = nil, month: Swift.Int? = nil) -> Foundation.Date?
+  public func adjust(for type: Foundation.Date.DateAdjustmentType, calendar: Foundation.Calendar = Calendar.current) -> Foundation.Date?
+  public func since(_ date: Foundation.Date, in component: Foundation.Date.DateComponentType) -> Swift.Int64?
+  public func component(_ component: Foundation.Date.DateComponentType) -> Swift.Int?
+  public func numberOfDaysInMonth() -> Swift.Int?
+  public func firstDayOfWeek() -> Swift.Int?
+  public func lastDayOfWeek() -> Swift.Int?
+  public enum DateFormatType {
+    case isoYear
+    case isoYearMonth
+    case isoDate
+    case isoDateTime
+    case isoDateTimeFull
+    case dotNet
+    case rss
+    case altRSS
+    case httpHeader
+    case standard
+    case custom(Swift.String)
+  }
+  public enum TimeZoneType {
+    case local, `default`, utc, custom(Swift.Int)
+  }
+  public enum RelativeTimeType {
+    case nowPast
+    case nowFuture
+    case secondsPast
+    case secondsFuture
+    case oneMinutePast
+    case oneMinuteFuture
+    case minutesPast
+    case minutesFuture
+    case oneHourPast
+    case oneHourFuture
+    case hoursPast
+    case hoursFuture
+    case oneDayPast
+    case oneDayFuture
+    case daysPast
+    case daysFuture
+    case oneWeekPast
+    case oneWeekFuture
+    case weeksPast
+    case weeksFuture
+    case oneMonthPast
+    case oneMonthFuture
+    case monthsPast
+    case monthsFuture
+    case oneYearPast
+    case oneYearFuture
+    case yearsPast
+    case yearsFuture
+    public static func == (a: Foundation.Date.RelativeTimeType, b: Foundation.Date.RelativeTimeType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum DateComparisonType {
+    case isToday
+    case isTomorrow
+    case isYesterday
+    case isSameDay(as: Foundation.Date)
+    case isThisWeek
+    case isNextWeek
+    case isLastWeek
+    case isSameWeek(as: Foundation.Date)
+    case isThisMonth
+    case isNextMonth
+    case isLastMonth
+    case isSameMonth(as: Foundation.Date)
+    case isThisYear
+    case isNextYear
+    case isLastYear
+    case isSameYear(as: Foundation.Date)
+    case isInTheFuture
+    case isInThePast
+    case isEarlier(than: Foundation.Date)
+    case isLater(than: Foundation.Date)
+    case isWeekday
+    case isWeekend
+  }
+  public enum DateComponentType {
+    case second, minute, hour, day, weekday, weekdayOrdinal, week, month, year
+    public static func == (a: Foundation.Date.DateComponentType, b: Foundation.Date.DateComponentType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum DateAdjustmentType {
+    case startOfDay
+    case endOfDay
+    case startOfWeek
+    case endOfWeek
+    case startOfMonth
+    case endOfMonth
+    case tomorrow
+    case yesterday
+    case nearestMinute(minute: Swift.Int)
+    case nearestHour(hour: Swift.Int)
+    case startOfYear
+    case endOfYear
+  }
+  public enum DateStyleType : Swift.String {
+    case short
+    case medium
+    case long
+    case full
+    case ordinalDay
+    case weekday
+    case shortWeekday
+    case veryShortWeekday
+    case month
+    case shortMonth
+    case veryShortMonth
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Foundation.Date.DateFormatType : Swift.Equatable {
+  public static func == (lhs: Foundation.Date.DateFormatType, rhs: Foundation.Date.DateFormatType) -> Swift.Bool
+}
+extension ROIQueryCore.Level : Swift.Equatable {}
+extension ROIQueryCore.Level : Swift.Hashable {}
+extension ROIQueryCore.Level : Swift.RawRepresentable {}
+extension ROIQueryCore.Code : Swift.Equatable {}
+extension ROIQueryCore.Code : Swift.Hashable {}
+extension ROIQueryCore.Code : Swift.RawRepresentable {}
+extension ROIQueryCore.Msg : Swift.Equatable {}
+extension ROIQueryCore.Msg : Swift.Hashable {}
+extension ROIQueryCore.Msg : Swift.RawRepresentable {}
+extension ROIQueryCore.HTTPMethod : Swift.Equatable {}
+extension ROIQueryCore.HTTPMethod : Swift.Hashable {}
+extension ROIQueryCore.HTTPMethod : Swift.RawRepresentable {}
+extension ROIQueryCore.HTTPProgress.`Type` : Swift.Equatable {}
+extension ROIQueryCore.HTTPProgress.`Type` : Swift.Hashable {}
+extension ROIQueryCore.LogDegree : Swift.Equatable {}
+extension ROIQueryCore.LogDegree : Swift.Hashable {}
+extension ROIQueryCore.LogDegree : Swift.RawRepresentable {}
+extension ROIQueryCore.AppStateObserver.AppState : Swift.Hashable {}
+extension ROIQueryCore.AppStateObserver.AppState : Swift.RawRepresentable {}
+extension ROIQueryCore.SwiftyJSONError : Swift.Equatable {}
+extension ROIQueryCore.SwiftyJSONError : Swift.Hashable {}
+extension ROIQueryCore.SwiftyJSONError : Swift.RawRepresentable {}
+extension ROIQueryCore.`Type` : Swift.Equatable {}
+extension ROIQueryCore.`Type` : Swift.Hashable {}
+extension ROIQueryCore.`Type` : Swift.RawRepresentable {}
+extension ROIQueryCore.writingOptionsKeys : Swift.Equatable {}
+extension ROIQueryCore.writingOptionsKeys : Swift.Hashable {}
+extension ROIQueryCore.AdType : Swift.Equatable {}
+extension ROIQueryCore.AdType : Swift.Hashable {}
+extension ROIQueryCore.AdType : Swift.RawRepresentable {}
+extension ROIQueryCore.AdMediation : Swift.Equatable {}
+extension ROIQueryCore.AdMediation : Swift.Hashable {}
+extension ROIQueryCore.AdMediation : Swift.RawRepresentable {}
+extension ROIQueryCore.AdPlatform : Swift.Equatable {}
+extension ROIQueryCore.AdPlatform : Swift.Hashable {}
+extension ROIQueryCore.AdPlatform : Swift.RawRepresentable {}
+extension ROIQueryCore.DTChannel : Swift.Equatable {}
+extension ROIQueryCore.DTChannel : Swift.Hashable {}
+extension ROIQueryCore.DTChannel : Swift.RawRepresentable {}
+@available(*, unavailable, renamed: "Connection")
+extension ROIQueryCore.Reachability.NetworkStatus : Swift.Equatable {}
+@available(*, unavailable, renamed: "Connection")
+extension ROIQueryCore.Reachability.NetworkStatus : Swift.Hashable {}
+extension ROIQueryCore.Reachability.Connection : Swift.Equatable {}
+extension ROIQueryCore.Reachability.Connection : Swift.Hashable {}
+extension ROIQueryCore.KeychainItemAccessibility : Swift.Equatable {}
+extension ROIQueryCore.KeychainItemAccessibility : Swift.Hashable {}
+extension Foundation.Date.RelativeTimeType : Swift.Equatable {}
+extension Foundation.Date.RelativeTimeType : Swift.Hashable {}
+extension Foundation.Date.DateComponentType : Swift.Equatable {}
+extension Foundation.Date.DateComponentType : Swift.Hashable {}
+extension Foundation.Date.DateStyleType : Swift.Equatable {}
+extension Foundation.Date.DateStyleType : Swift.Hashable {}
+extension Foundation.Date.DateStyleType : Swift.RawRepresentable {}
